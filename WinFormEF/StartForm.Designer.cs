@@ -63,6 +63,7 @@
             drivernavbtn.TabIndex = 2;
             drivernavbtn.Text = "Driver";
             drivernavbtn.UseVisualStyleBackColor = true;
+            drivernavbtn.Click += drivernavbtn_Click;
             // 
             // deliverynavbtn
             // 

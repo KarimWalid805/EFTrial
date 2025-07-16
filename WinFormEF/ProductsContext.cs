@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WinFormEF;
 
-namespace GetStartedWinForms;
+namespace WinFormEF;
 
 public class ProductsContext : DbContext
 {
@@ -9,7 +9,7 @@ public class ProductsContext : DbContext
     public DbSet<Category> Categories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=products;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=OnlineDeliveryDB;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

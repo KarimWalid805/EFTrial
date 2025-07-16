@@ -1,16 +1,16 @@
-using GetStartedWinForms;
+
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace WinFormEF
 {
-    public partial class MainForm : Form
+    public partial class CatProForm : Form
     {
         private ProductsContext dbContext;
 
 
-        public MainForm()
+        public CatProForm()
         {
 
             InitializeComponent();

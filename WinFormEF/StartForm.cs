@@ -17,6 +17,7 @@ namespace WinFormEF
             InitializeComponent();
         }
 
+
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -24,8 +25,15 @@ namespace WinFormEF
 
         private void catpronavbtn_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
+            CatProForm catproForm = new CatProForm();
+            catproForm.ShowDialog();
+        }
+
+        private void drivernavbtn_Click(object sender, EventArgs e)
+        {
+            DriversForm driversForm = new DriversForm();
+            driversForm.ShowDialog();
+
         }
     }
 }

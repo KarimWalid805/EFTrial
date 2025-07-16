@@ -1,6 +1,6 @@
 ﻿namespace WinFormEF
 {
-    partial class MainForm
+    partial class CatProForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,8 +33,6 @@
             productsBindingSource = new BindingSource(components);
             buttonSave = new Button();
             categoryDataGridView = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             categoryBindingSource1 = new BindingSource(components);
             productDataGridView = new DataGridView();
             productIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -43,6 +41,8 @@
             productsBindingSource1 = new BindingSource(components);
             Addbtn = new Button();
             Deletebtn = new Button();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryDataGridView).BeginInit();
@@ -72,22 +72,6 @@
             categoryDataGridView.RowHeadersWidth = 51;
             categoryDataGridView.Size = new Size(398, 379);
             categoryDataGridView.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "CategoryId";
-            dataGridViewTextBoxColumn1.HeaderText = "CategoryId";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            dataGridViewTextBoxColumn2.HeaderText = "Name";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 125;
             // 
             // categoryBindingSource1
             // 
@@ -154,7 +138,23 @@
             Deletebtn.UseVisualStyleBackColor = true;
             Deletebtn.Click += Deletebtn_Click;
             // 
-            // MainForm
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "CategoryId";
+            dataGridViewTextBoxColumn1.HeaderText = "CategoryId";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            dataGridViewTextBoxColumn2.HeaderText = "Name";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // CatProForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -164,7 +164,7 @@
             Controls.Add(productDataGridView);
             Controls.Add(categoryDataGridView);
             Controls.Add(buttonSave);
-            Name = "MainForm";
+            Name = "CatProForm";
             Text = "Products and Categories";
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)productsBindingSource).EndInit();
@@ -184,8 +184,6 @@
         private DataGridView categoryDataGridView;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private BindingSource categoryBindingSource1;
         private DataGridView productDataGridView;
         private BindingSource productsBindingSource1;
@@ -195,5 +193,7 @@
         private DataGridViewTextBoxColumn Category;
         private DataGridViewTextBoxColumn CategoryId;
         private Button Deletebtn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

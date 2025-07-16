@@ -12,7 +12,7 @@ namespace WinFormEF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Server=DESKTOP-LN50LC7;Database=products;ConnectRetryCount=0");
+                @"Server=DESKTOP-LN50LC7;Database=OnlineDeliveryDB;ConnectRetryCount=0");
         }
     }
 }
