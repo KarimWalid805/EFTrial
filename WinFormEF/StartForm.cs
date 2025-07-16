@@ -35,5 +35,17 @@ namespace WinFormEF
             driversForm.ShowDialog();
 
         }
+
+        private void deliverynavbtn_Click(object sender, EventArgs e)
+        {
+            DeliveriesForm deliveryForm = new DeliveriesForm();
+            deliveryForm.ShowDialog();
+        }
+
+        private void customernavbtn_Click(object sender, EventArgs e)
+        {
+            CustomersForm costumerForm = new CustomersForm();
+            costumerForm.ShowDialog();
+        }
     }
 }

@@ -28,22 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            WelcomeText = new RichTextBox();
             catpronavbtn = new Button();
             drivernavbtn = new Button();
             deliverynavbtn = new Button();
             customernavbtn = new Button();
+            welcomelbl = new Label();
+            desclbl = new Label();
             SuspendLayout();
-            // 
-            // WelcomeText
-            // 
-            WelcomeText.Location = new Point(307, 89);
-            WelcomeText.Name = "WelcomeText";
-            WelcomeText.Size = new Size(171, 29);
-            WelcomeText.TabIndex = 0;
-            WelcomeText.Text = "Welcome to my project!";
-            WelcomeText.Visible = false;
-            WelcomeText.TextChanged += richTextBox1_TextChanged;
             // 
             // catpronavbtn
             // 
@@ -73,6 +64,7 @@
             deliverynavbtn.TabIndex = 3;
             deliverynavbtn.Text = "Delivery";
             deliverynavbtn.UseVisualStyleBackColor = true;
+            deliverynavbtn.Click += deliverynavbtn_Click;
             // 
             // customernavbtn
             // 
@@ -82,20 +74,42 @@
             customernavbtn.TabIndex = 4;
             customernavbtn.Text = "Customer";
             customernavbtn.UseVisualStyleBackColor = true;
+            customernavbtn.Click += customernavbtn_Click;
+            // 
+            // welcomelbl
+            // 
+            welcomelbl.AutoSize = true;
+            welcomelbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            welcomelbl.Location = new Point(212, 39);
+            welcomelbl.Name = "welcomelbl";
+            welcomelbl.Size = new Size(364, 20);
+            welcomelbl.TabIndex = 5;
+            welcomelbl.Text = "Welcome to my PRAC 300 Windows Form Project!";
+            // 
+            // desclbl
+            // 
+            desclbl.AutoSize = true;
+            desclbl.Location = new Point(273, 90);
+            desclbl.Name = "desclbl";
+            desclbl.Size = new Size(253, 20);
+            desclbl.TabIndex = 6;
+            desclbl.Text = "Choose the table(s) you want to edit!";
             // 
             // StartForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(desclbl);
+            Controls.Add(welcomelbl);
             Controls.Add(customernavbtn);
             Controls.Add(deliverynavbtn);
             Controls.Add(drivernavbtn);
             Controls.Add(catpronavbtn);
-            Controls.Add(WelcomeText);
             Name = "StartForm";
             Text = "StartForm";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -105,5 +119,7 @@
         private Button drivernavbtn;
         private Button deliverynavbtn;
         private Button customernavbtn;
+        private Label welcomelbl;
+        private Label desclbl;
     }
 }
