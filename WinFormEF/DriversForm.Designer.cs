@@ -43,6 +43,7 @@
             Removebtn = new Button();
             Savebtn = new Button();
             Editbtn = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
@@ -51,7 +52,7 @@
             // driverFNamelbl
             // 
             driverFNamelbl.AutoSize = true;
-            driverFNamelbl.Location = new Point(54, 63);
+            driverFNamelbl.Location = new Point(10, 12);
             driverFNamelbl.Name = "driverFNamelbl";
             driverFNamelbl.Size = new Size(133, 20);
             driverFNamelbl.TabIndex = 0;
@@ -60,7 +61,7 @@
             // driverLNamelbl
             // 
             driverLNamelbl.AutoSize = true;
-            driverLNamelbl.Location = new Point(54, 106);
+            driverLNamelbl.Location = new Point(10, 55);
             driverLNamelbl.Name = "driverLNamelbl";
             driverLNamelbl.Size = new Size(132, 20);
             driverLNamelbl.TabIndex = 1;
@@ -68,14 +69,14 @@
             // 
             // FirstNametxt
             // 
-            FirstNametxt.Location = new Point(193, 63);
+            FirstNametxt.Location = new Point(149, 12);
             FirstNametxt.Name = "FirstNametxt";
             FirstNametxt.Size = new Size(125, 27);
             FirstNametxt.TabIndex = 2;
             // 
             // LastNametxt
             // 
-            LastNametxt.Location = new Point(193, 106);
+            LastNametxt.Location = new Point(149, 55);
             LastNametxt.Name = "LastNametxt";
             LastNametxt.Size = new Size(125, 27);
             LastNametxt.TabIndex = 3;
@@ -83,7 +84,7 @@
             // vehicleTypelbl
             // 
             vehicleTypelbl.AutoSize = true;
-            vehicleTypelbl.Location = new Point(96, 197);
+            vehicleTypelbl.Location = new Point(52, 146);
             vehicleTypelbl.Name = "vehicleTypelbl";
             vehicleTypelbl.Size = new Size(91, 20);
             vehicleTypelbl.TabIndex = 4;
@@ -92,15 +93,15 @@
             // VehicleBox
             // 
             VehicleBox.FormattingEnabled = true;
-            VehicleBox.Location = new Point(193, 194);
+            VehicleBox.Location = new Point(149, 143);
             VehicleBox.Name = "VehicleBox";
-            VehicleBox.Size = new Size(186, 28);
+            VehicleBox.Size = new Size(125, 28);
             VehicleBox.TabIndex = 5;
             // 
             // Agelbl
             // 
             Agelbl.AutoSize = true;
-            Agelbl.Location = new Point(150, 152);
+            Agelbl.Location = new Point(106, 101);
             Agelbl.Name = "Agelbl";
             Agelbl.Size = new Size(36, 20);
             Agelbl.TabIndex = 6;
@@ -108,19 +109,19 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(193, 152);
+            numericUpDown1.Location = new Point(149, 101);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(150, 27);
+            numericUpDown1.Size = new Size(125, 27);
             numericUpDown1.TabIndex = 7;
             // 
             // DriverGridView
             // 
             DriverGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DriverGridView.Location = new Point(54, 232);
+            DriverGridView.Location = new Point(10, 213);
             DriverGridView.Name = "DriverGridView";
             DriverGridView.ReadOnly = true;
             DriverGridView.RowHeadersWidth = 51;
-            DriverGridView.Size = new Size(478, 188);
+            DriverGridView.Size = new Size(429, 188);
             DriverGridView.TabIndex = 8;
             DriverGridView.Tag = "Driver";
             // 
@@ -130,7 +131,7 @@
             // 
             // Addbtn
             // 
-            Addbtn.Location = new Point(438, 63);
+            Addbtn.Location = new Point(347, 20);
             Addbtn.Name = "Addbtn";
             Addbtn.Size = new Size(94, 29);
             Addbtn.TabIndex = 9;
@@ -139,7 +140,7 @@
             // 
             // Removebtn
             // 
-            Removebtn.Location = new Point(438, 133);
+            Removebtn.Location = new Point(347, 90);
             Removebtn.Name = "Removebtn";
             Removebtn.Size = new Size(94, 29);
             Removebtn.TabIndex = 10;
@@ -148,7 +149,7 @@
             // 
             // Savebtn
             // 
-            Savebtn.Location = new Point(438, 168);
+            Savebtn.Location = new Point(347, 125);
             Savebtn.Name = "Savebtn";
             Savebtn.Size = new Size(94, 29);
             Savebtn.TabIndex = 12;
@@ -157,18 +158,28 @@
             // 
             // Editbtn
             // 
-            Editbtn.Location = new Point(438, 98);
+            Editbtn.Location = new Point(347, 55);
             Editbtn.Name = "Editbtn";
             Editbtn.Size = new Size(94, 29);
             Editbtn.TabIndex = 11;
             Editbtn.Text = "Edit";
             Editbtn.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 190);
+            label1.Name = "label1";
+            label1.Size = new Size(274, 20);
+            label1.TabIndex = 13;
+            label1.Text = "Choose which order you want to deliver:";
+            // 
             // DriversForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(581, 450);
+            ClientSize = new Size(466, 414);
+            Controls.Add(label1);
             Controls.Add(Savebtn);
             Controls.Add(Editbtn);
             Controls.Add(Removebtn);
@@ -207,5 +218,6 @@
         private Button Removebtn;
         private Button Savebtn;
         private Button Editbtn;
+        private Label label1;
     }
 }

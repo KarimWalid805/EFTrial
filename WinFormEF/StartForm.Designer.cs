@@ -38,9 +38,9 @@
             // 
             // catpronavbtn
             // 
-            catpronavbtn.Location = new Point(307, 124);
+            catpronavbtn.Location = new Point(54, 66);
             catpronavbtn.Name = "catpronavbtn";
-            catpronavbtn.Size = new Size(181, 64);
+            catpronavbtn.Size = new Size(125, 64);
             catpronavbtn.TabIndex = 1;
             catpronavbtn.Text = "Categories And Products";
             catpronavbtn.UseVisualStyleBackColor = true;
@@ -48,7 +48,7 @@
             // 
             // drivernavbtn
             // 
-            drivernavbtn.Location = new Point(199, 194);
+            drivernavbtn.Location = new Point(54, 136);
             drivernavbtn.Name = "drivernavbtn";
             drivernavbtn.Size = new Size(125, 64);
             drivernavbtn.TabIndex = 2;
@@ -58,7 +58,7 @@
             // 
             // deliverynavbtn
             // 
-            deliverynavbtn.Location = new Point(336, 194);
+            deliverynavbtn.Location = new Point(185, 66);
             deliverynavbtn.Name = "deliverynavbtn";
             deliverynavbtn.Size = new Size(125, 64);
             deliverynavbtn.TabIndex = 3;
@@ -68,7 +68,7 @@
             // 
             // customernavbtn
             // 
-            customernavbtn.Location = new Point(467, 194);
+            customernavbtn.Location = new Point(185, 136);
             customernavbtn.Name = "customernavbtn";
             customernavbtn.Size = new Size(125, 64);
             customernavbtn.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             welcomelbl.AutoSize = true;
             welcomelbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            welcomelbl.Location = new Point(212, 39);
+            welcomelbl.Location = new Point(3, 9);
             welcomelbl.Name = "welcomelbl";
             welcomelbl.Size = new Size(364, 20);
             welcomelbl.TabIndex = 5;
@@ -89,7 +89,7 @@
             // desclbl
             // 
             desclbl.AutoSize = true;
-            desclbl.Location = new Point(273, 90);
+            desclbl.Location = new Point(57, 43);
             desclbl.Name = "desclbl";
             desclbl.Size = new Size(253, 20);
             desclbl.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(371, 224);
             Controls.Add(desclbl);
             Controls.Add(welcomelbl);
             Controls.Add(customernavbtn);
