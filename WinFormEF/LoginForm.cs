@@ -36,29 +36,59 @@ namespace WinFormEF
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            if (passwordtxt.Text != string.Empty || usernametxt.Text != string.Empty)
+            if(customerRadio.Checked)
             {
-
-                cmd = new SqlCommand("select * from LoginTable where username='" + usernametxt.Text + "' and password='" + passwordtxt.Text + "'", con);
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
+                if (passwordtxt.Text != string.Empty || usernametxt.Text != string.Empty)
                 {
-                    dr.Close();
-                    this.Hide();
-                    StartForm home = new StartForm();
-                    home.ShowDialog();
+
+                    cmd = new SqlCommand("select * from customeraccount where username='" + usernametxt.Text + "' and password='" + passwordtxt.Text + "'", con);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        dr.Close();
+                        this.Hide();
+                        StartForm home = new StartForm();
+                        home.ShowDialog();
+                    }
+                    else
+                    {
+                        dr.Close();
+                        MessageBox.Show("No customer's Account avilable with this username and password ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 else
                 {
-                    dr.Close();
-                    MessageBox.Show("No Account avilable with this username and password ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-            else
+            if (driverRadio.Checked)
             {
-                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (passwordtxt.Text != string.Empty || usernametxt.Text != string.Empty)
+                {
+
+                    cmd = new SqlCommand("select * from driveraccount where username='" + usernametxt.Text + "' and password='" + passwordtxt.Text + "'", con);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        dr.Close();
+                        this.Hide();
+                        StartForm home = new StartForm();
+                        home.ShowDialog();
+                    }
+                    else
+                    {
+                        dr.Close();
+                        MessageBox.Show("No driver's Account avilable with this username and password ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
     }
 }

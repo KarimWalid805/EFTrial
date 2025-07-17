@@ -38,36 +38,74 @@ namespace WinFormEF
 
         private void registerbtn_Click(object sender, EventArgs e)
         {
-            if (txtconfirmpassword.Text != string.Empty || txtpassword.Text != string.Empty || txtusername.Text != string.Empty)
+            if (customerRadio.Checked)
             {
-                if (txtpassword.Text == txtconfirmpassword.Text)
+                if (txtconfirmpassword.Text != string.Empty || txtpassword.Text != string.Empty || txtusername.Text != string.Empty)
                 {
-                    cmd = new SqlCommand("select * from LoginTable where username='" + txtusername.Text + "'", con);
-                    dr = cmd.ExecuteReader();
-                    if (dr.Read())
+                    if (txtpassword.Text == txtconfirmpassword.Text)
                     {
-                        dr.Close();
-                        MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmd = new SqlCommand("select * from customeraccount where username='" + txtusername.Text + "'", con);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            dr.Close();
+                            MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+
+                            dr.Close();
+                            cmd = new SqlCommand("insert into customeraccount values(@username,@password)", con);
+                            cmd.Parameters.AddWithValue("username", txtusername.Text);
+                            cmd.Parameters.AddWithValue("password", txtpassword.Text);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Your customer Account is created . Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                     else
                     {
-
-                        dr.Close();
-                        cmd = new SqlCommand("insert into LoginTable values(@username,@password)", con);
-                        cmd.Parameters.AddWithValue("username", txtusername.Text);
-                        cmd.Parameters.AddWithValue("password", txtpassword.Text);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Your Account is created . Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+
+            if (driverRadio.Checked)
             {
-                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (txtconfirmpassword.Text != string.Empty || txtpassword.Text != string.Empty || txtusername.Text != string.Empty)
+                {
+                    if (txtpassword.Text == txtconfirmpassword.Text)
+                    {
+                        cmd = new SqlCommand("select * from driveraccount where username='" + txtusername.Text + "'", con);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            dr.Close();
+                            MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+
+                            dr.Close();
+                            cmd = new SqlCommand("insert into driveraccount values(@username,@password)", con);
+                            cmd.Parameters.AddWithValue("username", txtusername.Text);
+                            cmd.Parameters.AddWithValue("password", txtpassword.Text);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Your drivers Account is created . Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

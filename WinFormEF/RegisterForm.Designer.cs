@@ -36,6 +36,10 @@
             txtpassword = new TextBox();
             registerbtn = new Button();
             loginbtn = new Button();
+            GroupBox = new GroupBox();
+            customerRadio = new RadioButton();
+            driverRadio = new RadioButton();
+            GroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // usernamelbl
@@ -106,11 +110,45 @@
             loginbtn.UseVisualStyleBackColor = true;
             loginbtn.Click += loginbtn_Click;
             // 
-            // loginForm
+            // GroupBox
+            // 
+            GroupBox.Controls.Add(customerRadio);
+            GroupBox.Controls.Add(driverRadio);
+            GroupBox.Location = new Point(352, 72);
+            GroupBox.Name = "GroupBox";
+            GroupBox.Size = new Size(203, 215);
+            GroupBox.TabIndex = 8;
+            GroupBox.TabStop = false;
+            GroupBox.Text = "Driver/Customer";
+            // 
+            // customerRadio
+            // 
+            customerRadio.AutoSize = true;
+            customerRadio.Location = new Point(44, 73);
+            customerRadio.Name = "customerRadio";
+            customerRadio.Size = new Size(93, 24);
+            customerRadio.TabIndex = 1;
+            customerRadio.TabStop = true;
+            customerRadio.Text = "Customer";
+            customerRadio.UseVisualStyleBackColor = true;
+            // 
+            // driverRadio
+            // 
+            driverRadio.AutoSize = true;
+            driverRadio.Location = new Point(45, 39);
+            driverRadio.Name = "driverRadio";
+            driverRadio.Size = new Size(70, 24);
+            driverRadio.TabIndex = 0;
+            driverRadio.TabStop = true;
+            driverRadio.Text = "Driver";
+            driverRadio.UseVisualStyleBackColor = true;
+            // 
+            // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(581, 326);
+            Controls.Add(GroupBox);
             Controls.Add(loginbtn);
             Controls.Add(registerbtn);
             Controls.Add(txtpassword);
@@ -119,9 +157,11 @@
             Controls.Add(conpasslbl);
             Controls.Add(passwordlbl);
             Controls.Add(usernamelbl);
-            Name = "loginForm";
+            Name = "RegisterForm";
             Text = "loginForm";
             Load += loginForm_Load;
+            GroupBox.ResumeLayout(false);
+            GroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,5 +176,8 @@
         private TextBox txtpassword;
         private Button registerbtn;
         private Button loginbtn;
+        private GroupBox GroupBox;
+        private RadioButton customerRadio;
+        private RadioButton driverRadio;
     }
 }
