@@ -11,4 +11,10 @@ public class Product
 
     public int CategoryId { get; set; }
     public virtual Category Category { get; set; } = null!;
+
+    public string Items => $"{ProductId}, {Name}";
+    public override string ToString()
+    {
+        return Name;
+    }
 }
