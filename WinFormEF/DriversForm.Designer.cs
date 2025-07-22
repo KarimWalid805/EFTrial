@@ -36,7 +36,7 @@
             vehicleTypelbl = new Label();
             VehicleBox = new ComboBox();
             Agelbl = new Label();
-            numericUpDown1 = new NumericUpDown();
+            Agetxt = new NumericUpDown();
             DriverGridView = new DataGridView();
             categoryBindingSource = new BindingSource(components);
             Addbtn = new Button();
@@ -44,7 +44,7 @@
             Savebtn = new Button();
             Editbtn = new Button();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             SuspendLayout();
@@ -107,12 +107,12 @@
             Agelbl.TabIndex = 6;
             Agelbl.Text = "Age";
             // 
-            // numericUpDown1
+            // Agetxt
             // 
-            numericUpDown1.Location = new Point(149, 101);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(125, 27);
-            numericUpDown1.TabIndex = 7;
+            Agetxt.Location = new Point(149, 101);
+            Agetxt.Name = "Agetxt";
+            Agetxt.Size = new Size(125, 27);
+            Agetxt.TabIndex = 7;
             // 
             // DriverGridView
             // 
@@ -137,6 +137,7 @@
             Addbtn.TabIndex = 9;
             Addbtn.Text = "Add";
             Addbtn.UseVisualStyleBackColor = true;
+            Addbtn.Click += Addbtn_Click;
             // 
             // Removebtn
             // 
@@ -185,7 +186,7 @@
             Controls.Add(Removebtn);
             Controls.Add(Addbtn);
             Controls.Add(DriverGridView);
-            Controls.Add(numericUpDown1);
+            Controls.Add(Agetxt);
             Controls.Add(Agelbl);
             Controls.Add(VehicleBox);
             Controls.Add(vehicleTypelbl);
@@ -195,7 +196,7 @@
             Controls.Add(driverFNamelbl);
             Name = "DriversForm";
             Text = "Drivers";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Agetxt).EndInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ResumeLayout(false);
@@ -211,7 +212,7 @@
         private Label vehicleTypelbl;
         private ComboBox VehicleBox;
         private Label Agelbl;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown Agetxt;
         private DataGridView DriverGridView;
         private BindingSource categoryBindingSource;
         private Button Addbtn;

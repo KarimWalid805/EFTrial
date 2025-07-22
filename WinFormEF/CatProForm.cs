@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace WinFormEF
         {
 
             InitializeComponent();
-            
+
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -40,7 +41,7 @@ namespace WinFormEF
 
             productDataGridView.ClearSelection();
             categoryDataGridView.ClearSelection();
-            
+
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -52,18 +53,31 @@ namespace WinFormEF
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            dbContext.SaveChanges();
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                File.AppendAllText("error.log", ex.ToString());
+
+                // Display user-friendly message
+                MessageBox.Show("The Category of the product you are trying to create does not exist, please create the category first in the category table!");
+            }
         }
+
 
         private void Addbtn_Click(object sender, EventArgs e)
         {
             categoryBindingSource.AddNew();
+           
         }
 
         private void Deletebtn_Click(object sender, EventArgs e)
         {
 
-           
+
 
 
             if (productDataGridView.CurrentRow != null)
@@ -86,9 +100,21 @@ namespace WinFormEF
 
                 }
 
-            } 
+            }
 
 
+
+
+            //dbContext.Dele
+        }
+
+        private void categoryDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             if (categoryDataGridView.CurrentRow != null)
             {
                 string CMessage = "Are you sure you want to delete this Category? (This will delete all corresponding products in the category)";
@@ -112,8 +138,16 @@ namespace WinFormEF
                 }
 
             }
+        }
 
-            //dbContext.Dele
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dbContext.SaveChanges();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
