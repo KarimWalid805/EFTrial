@@ -116,15 +116,15 @@
             GroupBox.Controls.Add(driverRadio);
             GroupBox.Location = new Point(326, 12);
             GroupBox.Name = "GroupBox";
-            GroupBox.Size = new Size(203, 215);
+            GroupBox.Size = new Size(203, 143);
             GroupBox.TabIndex = 8;
             GroupBox.TabStop = false;
-            GroupBox.Text = "Driver/Customer";
+            GroupBox.Text = "Register as a:";
             // 
             // customerRadio
             // 
             customerRadio.AutoSize = true;
-            customerRadio.Location = new Point(44, 73);
+            customerRadio.Location = new Point(45, 69);
             customerRadio.Name = "customerRadio";
             customerRadio.Size = new Size(93, 24);
             customerRadio.TabIndex = 1;

@@ -35,8 +35,9 @@
             loginbtn = new Button();
             registerbtn = new Button();
             GroupBox = new GroupBox();
-            driverRadio = new RadioButton();
             customerRadio = new RadioButton();
+            driverRadio = new RadioButton();
+            adminRadio = new RadioButton();
             GroupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -94,14 +95,26 @@
             // 
             // GroupBox
             // 
+            GroupBox.Controls.Add(adminRadio);
             GroupBox.Controls.Add(customerRadio);
             GroupBox.Controls.Add(driverRadio);
             GroupBox.Location = new Point(345, 24);
             GroupBox.Name = "GroupBox";
-            GroupBox.Size = new Size(203, 215);
+            GroupBox.Size = new Size(203, 141);
             GroupBox.TabIndex = 6;
             GroupBox.TabStop = false;
-            GroupBox.Text = "Driver/Customer";
+            GroupBox.Text = "You are a(n):";
+            // 
+            // customerRadio
+            // 
+            customerRadio.AutoSize = true;
+            customerRadio.Location = new Point(45, 69);
+            customerRadio.Name = "customerRadio";
+            customerRadio.Size = new Size(93, 24);
+            customerRadio.TabIndex = 1;
+            customerRadio.TabStop = true;
+            customerRadio.Text = "Customer";
+            customerRadio.UseVisualStyleBackColor = true;
             // 
             // driverRadio
             // 
@@ -114,16 +127,16 @@
             driverRadio.Text = "Driver";
             driverRadio.UseVisualStyleBackColor = true;
             // 
-            // customerRadio
+            // adminRadio
             // 
-            customerRadio.AutoSize = true;
-            customerRadio.Location = new Point(44, 73);
-            customerRadio.Name = "customerRadio";
-            customerRadio.Size = new Size(93, 24);
-            customerRadio.TabIndex = 1;
-            customerRadio.TabStop = true;
-            customerRadio.Text = "Customer";
-            customerRadio.UseVisualStyleBackColor = true;
+            adminRadio.AutoSize = true;
+            adminRadio.Location = new Point(46, 99);
+            adminRadio.Name = "adminRadio";
+            adminRadio.Size = new Size(74, 24);
+            adminRadio.TabIndex = 2;
+            adminRadio.TabStop = true;
+            adminRadio.Text = "Admin";
+            adminRadio.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
@@ -157,5 +170,6 @@
         private GroupBox GroupBox;
         private RadioButton customerRadio;
         private RadioButton driverRadio;
+        private RadioButton adminRadio;
     }
 }

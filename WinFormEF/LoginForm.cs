@@ -36,8 +36,9 @@ namespace WinFormEF
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            if(customerRadio.Checked)
+            if (customerRadio.Checked)
             {
+                Session.UserType = "Customer";
                 if (passwordtxt.Text != string.Empty || usernametxt.Text != string.Empty)
                 {
 
@@ -64,6 +65,8 @@ namespace WinFormEF
             }
             if (driverRadio.Checked)
             {
+                Session.UserType = "Driver";
+
                 if (passwordtxt.Text != string.Empty || usernametxt.Text != string.Empty)
                 {
 
@@ -88,6 +91,37 @@ namespace WinFormEF
                     MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+            if (adminRadio.Checked)
+            {
+                Session.UserType = "Admin";
+
+                if (passwordtxt.Text != string.Empty || usernametxt.Text != string.Empty)
+                {
+
+                    cmd = new SqlCommand("select * from adminaccount where username='" + usernametxt.Text + "' and password='" + passwordtxt.Text + "'", con);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        dr.Close();
+                        this.Hide();
+                        StartForm home = new StartForm();
+                        home.ShowDialog();
+                    }
+                    else
+                    {
+                        dr.Close();
+                        MessageBox.Show("You are not an Admin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
 
         }
     }

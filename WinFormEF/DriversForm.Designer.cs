@@ -41,12 +41,15 @@
             categoryBindingSource = new BindingSource(components);
             Addbtn = new Button();
             Removebtn = new Button();
-            Savebtn = new Button();
-            Editbtn = new Button();
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // driverFNamelbl
@@ -117,9 +120,8 @@
             // DriverGridView
             // 
             DriverGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DriverGridView.Location = new Point(10, 213);
+            DriverGridView.Location = new Point(12, 457);
             DriverGridView.Name = "DriverGridView";
-            DriverGridView.ReadOnly = true;
             DriverGridView.RowHeadersWidth = 51;
             DriverGridView.Size = new Size(429, 188);
             DriverGridView.TabIndex = 8;
@@ -131,40 +133,25 @@
             // 
             // Addbtn
             // 
-            Addbtn.Location = new Point(347, 20);
+            Addbtn.ForeColor = Color.FromArgb(0, 192, 0);
+            Addbtn.Location = new Point(311, 20);
             Addbtn.Name = "Addbtn";
-            Addbtn.Size = new Size(94, 29);
+            Addbtn.Size = new Size(130, 29);
             Addbtn.TabIndex = 9;
-            Addbtn.Text = "Add";
+            Addbtn.Text = "Choose Order";
             Addbtn.UseVisualStyleBackColor = true;
             Addbtn.Click += Addbtn_Click;
             // 
             // Removebtn
             // 
-            Removebtn.Location = new Point(347, 90);
+            Removebtn.ForeColor = Color.Red;
+            Removebtn.Location = new Point(345, 422);
             Removebtn.Name = "Removebtn";
             Removebtn.Size = new Size(94, 29);
             Removebtn.TabIndex = 10;
             Removebtn.Text = "Remove";
             Removebtn.UseVisualStyleBackColor = true;
-            // 
-            // Savebtn
-            // 
-            Savebtn.Location = new Point(347, 125);
-            Savebtn.Name = "Savebtn";
-            Savebtn.Size = new Size(94, 29);
-            Savebtn.TabIndex = 12;
-            Savebtn.Text = "Save";
-            Savebtn.UseVisualStyleBackColor = true;
-            // 
-            // Editbtn
-            // 
-            Editbtn.Location = new Point(347, 55);
-            Editbtn.Name = "Editbtn";
-            Editbtn.Size = new Size(94, 29);
-            Editbtn.TabIndex = 11;
-            Editbtn.Text = "Edit";
-            Editbtn.UseVisualStyleBackColor = true;
+            Removebtn.Click += Removebtn_Click;
             // 
             // label1
             // 
@@ -175,14 +162,53 @@
             label1.TabIndex = 13;
             label1.Text = "Choose which order you want to deliver:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 648);
+            label2.Name = "label2";
+            label2.Size = new Size(380, 20);
+            label2.TabIndex = 14;
+            label2.Text = "(Make sure to save your edit by clicking the edit button.)";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 423);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 31);
+            label3.TabIndex = 15;
+            label3.Text = "All Drivers";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(10, 383);
+            label4.Name = "label4";
+            label4.Size = new Size(112, 20);
+            label4.TabIndex = 16;
+            label4.Text = "Admin Controls";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 213);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(429, 150);
+            dataGridView1.TabIndex = 17;
+            // 
             // DriversForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(466, 414);
+            ClientSize = new Size(471, 681);
+            Controls.Add(dataGridView1);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(Savebtn);
-            Controls.Add(Editbtn);
             Controls.Add(Removebtn);
             Controls.Add(Addbtn);
             Controls.Add(DriverGridView);
@@ -199,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)Agetxt).EndInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -217,8 +244,10 @@
         private BindingSource categoryBindingSource;
         private Button Addbtn;
         private Button Removebtn;
-        private Button Savebtn;
-        private Button Editbtn;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private DataGridView dataGridView1;
     }
 }
