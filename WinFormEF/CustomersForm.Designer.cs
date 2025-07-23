@@ -32,17 +32,24 @@
             LNamelbl = new Label();
             Orderlbl = new Label();
             Address = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox4 = new TextBox();
+            FirstNametxt = new TextBox();
+            LastNametxt = new TextBox();
+            Addresstxt = new TextBox();
             ProductCheckedListBox = new CheckedListBox();
             welcomelbl = new Label();
             label2 = new Label();
             label3 = new Label();
-            dataGridView1 = new DataGridView();
+            OrderGridView = new DataGridView();
             addorderbtn = new Button();
             cancelorderbtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label1 = new Label();
+            customersDataGridView = new DataGridView();
+            Agelbl = new Label();
+            agenum = new NumericUpDown();
+            AddCust = new Button();
+            ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customersDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)agenum).BeginInit();
             SuspendLayout();
             // 
             // FNamelbl
@@ -66,7 +73,7 @@
             // Orderlbl
             // 
             Orderlbl.AutoSize = true;
-            Orderlbl.Location = new Point(15, 200);
+            Orderlbl.Location = new Point(16, 255);
             Orderlbl.Name = "Orderlbl";
             Orderlbl.Size = new Size(134, 20);
             Orderlbl.TabIndex = 4;
@@ -75,37 +82,37 @@
             // Address
             // 
             Address.AutoSize = true;
-            Address.Location = new Point(15, 167);
+            Address.Location = new Point(28, 170);
             Address.Name = "Address";
             Address.Size = new Size(138, 20);
             Address.TabIndex = 3;
             Address.Text = "Customer's Address";
             // 
-            // textBox1
+            // FirstNametxt
             // 
-            textBox1.Location = new Point(172, 101);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(143, 27);
-            textBox1.TabIndex = 5;
+            FirstNametxt.Location = new Point(172, 101);
+            FirstNametxt.Name = "FirstNametxt";
+            FirstNametxt.Size = new Size(143, 27);
+            FirstNametxt.TabIndex = 5;
             // 
-            // textBox2
+            // LastNametxt
             // 
-            textBox2.Location = new Point(172, 134);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(143, 27);
-            textBox2.TabIndex = 6;
+            LastNametxt.Location = new Point(172, 134);
+            LastNametxt.Name = "LastNametxt";
+            LastNametxt.Size = new Size(143, 27);
+            LastNametxt.TabIndex = 6;
             // 
-            // textBox4
+            // Addresstxt
             // 
-            textBox4.Location = new Point(172, 167);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(143, 27);
-            textBox4.TabIndex = 8;
+            Addresstxt.Location = new Point(172, 167);
+            Addresstxt.Name = "Addresstxt";
+            Addresstxt.Size = new Size(143, 27);
+            Addresstxt.TabIndex = 8;
             // 
             // ProductCheckedListBox
             // 
             ProductCheckedListBox.FormattingEnabled = true;
-            ProductCheckedListBox.Location = new Point(23, 223);
+            ProductCheckedListBox.Location = new Point(24, 278);
             ProductCheckedListBox.Name = "ProductCheckedListBox";
             ProductCheckedListBox.Size = new Size(143, 136);
             ProductCheckedListBox.TabIndex = 9;
@@ -139,18 +146,18 @@
             label3.TabIndex = 14;
             label3.Text = "Your Order:";
             // 
-            // dataGridView1
+            // OrderGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(345, 134);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(300, 202);
-            dataGridView1.TabIndex = 15;
+            OrderGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            OrderGridView.Location = new Point(345, 134);
+            OrderGridView.Name = "OrderGridView";
+            OrderGridView.RowHeadersWidth = 51;
+            OrderGridView.Size = new Size(300, 202);
+            OrderGridView.TabIndex = 15;
             // 
             // addorderbtn
             // 
-            addorderbtn.Location = new Point(181, 223);
+            addorderbtn.Location = new Point(182, 278);
             addorderbtn.Name = "addorderbtn";
             addorderbtn.Size = new Size(134, 29);
             addorderbtn.TabIndex = 16;
@@ -159,35 +166,87 @@
             // 
             // cancelorderbtn
             // 
-            cancelorderbtn.Location = new Point(181, 258);
+            cancelorderbtn.Location = new Point(182, 313);
             cancelorderbtn.Name = "cancelorderbtn";
             cancelorderbtn.Size = new Size(134, 29);
             cancelorderbtn.TabIndex = 17;
             cancelorderbtn.Text = "Cancel Order";
             cancelorderbtn.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(23, 417);
+            label1.Name = "label1";
+            label1.Size = new Size(189, 31);
+            label1.TabIndex = 18;
+            label1.Text = "Customers Table";
+            // 
+            // customersDataGridView
+            // 
+            customersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customersDataGridView.Location = new Point(11, 468);
+            customersDataGridView.Name = "customersDataGridView";
+            customersDataGridView.RowHeadersWidth = 51;
+            customersDataGridView.Size = new Size(425, 201);
+            customersDataGridView.TabIndex = 19;
+            // 
+            // Agelbl
+            // 
+            Agelbl.AutoSize = true;
+            Agelbl.Location = new Point(130, 209);
+            Agelbl.Name = "Agelbl";
+            Agelbl.Size = new Size(36, 20);
+            Agelbl.TabIndex = 20;
+            Agelbl.Text = "Age";
+            // 
+            // agenum
+            // 
+            agenum.Location = new Point(173, 207);
+            agenum.Name = "agenum";
+            agenum.Size = new Size(143, 27);
+            agenum.TabIndex = 21;
+            // 
+            // AddCust
+            // 
+            AddCust.Location = new Point(486, 447);
+            AddCust.Name = "AddCust";
+            AddCust.Size = new Size(94, 29);
+            AddCust.TabIndex = 22;
+            AddCust.Text = "Add";
+            AddCust.UseVisualStyleBackColor = true;
+            AddCust.Click += AddCust_Click;
+            // 
             // CustomersForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(682, 400);
+            ClientSize = new Size(682, 681);
+            Controls.Add(AddCust);
+            Controls.Add(agenum);
+            Controls.Add(Agelbl);
+            Controls.Add(customersDataGridView);
+            Controls.Add(label1);
             Controls.Add(cancelorderbtn);
             Controls.Add(addorderbtn);
-            Controls.Add(dataGridView1);
+            Controls.Add(OrderGridView);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(welcomelbl);
             Controls.Add(ProductCheckedListBox);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(Addresstxt);
+            Controls.Add(LastNametxt);
+            Controls.Add(FirstNametxt);
             Controls.Add(Orderlbl);
             Controls.Add(Address);
             Controls.Add(LNamelbl);
             Controls.Add(FNamelbl);
             Name = "CustomersForm";
             Text = "CustomersForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)OrderGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customersDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)agenum).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,15 +256,20 @@
         private Label LNamelbl;
         private Label Orderlbl;
         private Label Address;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox4;
+        private TextBox FirstNametxt;
+        private TextBox LastNametxt;
+        private TextBox Addresstxt;
         private CheckedListBox ProductCheckedListBox;
         private Label welcomelbl;
         private Label label2;
         private Label label3;
-        private DataGridView dataGridView1;
+        private DataGridView OrderGridView;
         private Button addorderbtn;
         private Button cancelorderbtn;
+        private Label label1;
+        private DataGridView customersDataGridView;
+        private Label Agelbl;
+        private NumericUpDown agenum;
+        private Button AddCust;
     }
 }
