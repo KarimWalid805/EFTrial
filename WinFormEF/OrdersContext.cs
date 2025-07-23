@@ -3,10 +3,9 @@ using WinFormEF;
 
 namespace WinFormEF;
 
-public class CustomerContext : DbContext
+public class OrdersContext : DbContext
 {
-    public DbSet<Customer> Customers { get; set; }
-
+    public DbSet<Orders> Orders { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -14,7 +13,7 @@ public class CustomerContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-       
+
 
 
 

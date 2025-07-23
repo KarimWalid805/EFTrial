@@ -16,7 +16,7 @@ namespace WinFormEF
         public int CustomerId { get; set; }
 
 
-        public string[] products_list { get; set; }
+        public string products_list { get; set; }
 
 
     }

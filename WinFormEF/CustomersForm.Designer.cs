@@ -35,7 +35,7 @@
             FirstNametxt = new TextBox();
             LastNametxt = new TextBox();
             Addresstxt = new TextBox();
-            ProductCheckedListBox = new CheckedListBox();
+            ProductListBox = new CheckedListBox();
             welcomelbl = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -109,13 +109,13 @@
             Addresstxt.Size = new Size(143, 27);
             Addresstxt.TabIndex = 8;
             // 
-            // ProductCheckedListBox
+            // ProductListBox
             // 
-            ProductCheckedListBox.FormattingEnabled = true;
-            ProductCheckedListBox.Location = new Point(24, 278);
-            ProductCheckedListBox.Name = "ProductCheckedListBox";
-            ProductCheckedListBox.Size = new Size(143, 136);
-            ProductCheckedListBox.TabIndex = 9;
+            ProductListBox.FormattingEnabled = true;
+            ProductListBox.Location = new Point(24, 278);
+            ProductListBox.Name = "ProductListBox";
+            ProductListBox.Size = new Size(143, 136);
+            ProductListBox.TabIndex = 9;
             // 
             // welcomelbl
             // 
@@ -234,7 +234,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(welcomelbl);
-            Controls.Add(ProductCheckedListBox);
+            Controls.Add(ProductListBox);
             Controls.Add(Addresstxt);
             Controls.Add(LastNametxt);
             Controls.Add(FirstNametxt);
@@ -259,7 +259,7 @@
         private TextBox FirstNametxt;
         private TextBox LastNametxt;
         private TextBox Addresstxt;
-        private CheckedListBox ProductCheckedListBox;
+        private CheckedListBox ProductListBox;
         private Label welcomelbl;
         private Label label2;
         private Label label3;
