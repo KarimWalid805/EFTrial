@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WinFormEF;
 
-namespace WinFormEF;
+namespace WinFormEF.Customers;
 
 public class CustomerContext : DbContext
 {

@@ -1,23 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormEF
+namespace WinFormEF.Customers
 {
-    public class Driver
+    public class Customer
     {
-        public int DriverId { get; set; }
+        public int CustomerId { get; set; }
         public string firstName { get; set; }
 
         public string lastName { get; set; }
 
+        public string Address { get; set; }
+
+
         public int age { get; set; }
 
-        public string vehicleType { get; set; }
 
     }
 }
-

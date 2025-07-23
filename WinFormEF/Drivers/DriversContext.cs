@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WinFormEF;
 
-namespace WinFormEF;
+namespace WinFormEF.Drivers;
 
 public class DriversContext : DbContext
 {

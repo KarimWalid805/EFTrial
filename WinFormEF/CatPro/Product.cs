@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
-using WinFormEF;
 
-namespace WinFormEF;
+namespace WinFormEF.CatPro;
 
 public class Product
 {

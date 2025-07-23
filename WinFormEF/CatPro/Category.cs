@@ -2,7 +2,7 @@
 
 
 
-namespace WinFormEF;
+namespace WinFormEF.CatPro;
 
 public class Category
 {

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
+using WinFormEF.CatPro;
+using WinFormEF.Customers;
+using WinFormEF.Orders;
 
 namespace WinFormEF
 {
@@ -77,7 +80,7 @@ namespace WinFormEF
             this.dbOrdersContext.Orders.Load();
 
 
-            Orders order = new Orders
+            Orders.Orders order = new Orders.Orders
             {
                 Address = Address.Text,
                 orderDate = DateTime.Now.ToString(),
@@ -143,7 +146,7 @@ namespace WinFormEF
             string productList = string.Join(",", selectedProducts);
 
 
-            Orders order = new Orders { Address = Address2, orderDate = orderDate, CustomerId =  customer.CustomerId, products_list = productList };
+            Orders.Orders order = new Orders.Orders { Address = Address2, orderDate = orderDate, CustomerId =  customer.CustomerId, products_list = productList };
             dbOrdersContext.Orders.Local.Add(order);
             dbOrdersContext.SaveChanges();
         }

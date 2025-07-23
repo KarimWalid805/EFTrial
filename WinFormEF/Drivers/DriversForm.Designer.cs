@@ -1,4 +1,6 @@
-﻿namespace WinFormEF
+﻿using WinFormEF.CatPro;
+
+namespace WinFormEF
 {
     partial class DriversForm
     {

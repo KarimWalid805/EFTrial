@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.ComponentModel;
 using System.Windows.Forms;
+using WinFormEF.CatPro;
 
 namespace WinFormEF
 {

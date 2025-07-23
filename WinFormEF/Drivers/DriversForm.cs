@@ -6,7 +6,7 @@ namespace WinFormEF
 {
     public partial class DriversForm : Form
     {
-        private DriversContext dbContext;
+        private Drivers.DriversContext dbContext;
         private BindingSource driversBindingSource; // Declare driversBindingSource
 
         public DriversForm()
@@ -23,14 +23,14 @@ namespace WinFormEF
             base.OnLoad(e);
             VehicleBox.Items.AddRange(new string[] { "Train", "Car", "Truck" });
 
-            this.dbContext = new DriversContext();
+            this.dbContext = new Drivers.DriversContext();
 
             //Uncomment the line below to start fresh with a new database.
             this.dbContext.Database.EnsureDeleted();
             this.dbContext.Database.EnsureCreated();
 
             this.dbContext.Drivers.Load();
-            Driver driver = new Driver
+            Drivers.Driver driver = new Drivers.Driver
             {
                 firstName = FirstNametxt.Text,
                 lastName = LastNametxt.Text
@@ -59,7 +59,7 @@ namespace WinFormEF
             int Age = (int)Agetxt.Value;
             string vehicleType = VehicleBox.SelectedItem?.ToString();
 
-            Driver driver = new Driver { firstName = firstName, lastName = lastName, age = Age, vehicleType = vehicleType };
+            Drivers.Driver driver = new Drivers.Driver { firstName = firstName, lastName = lastName, age = Age, vehicleType = vehicleType };
             dbContext.Drivers.Local.Add(driver);
             dbContext.SaveChanges();
         }
@@ -70,7 +70,7 @@ namespace WinFormEF
             {
                 string PMessage = "Are you sure you want to remove this driver?";
                 string PTitle = "Delete Confirmation";
-                var SelectedDriver = DriverGridView.CurrentRow.DataBoundItem as Driver;
+                var SelectedDriver = DriverGridView.CurrentRow.DataBoundItem as Drivers.Driver;
 
 
                 if (SelectedDriver != null)
