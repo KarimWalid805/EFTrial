@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormEF.Orders
+namespace WinFormEF.Customers
 {
     public class Orders
     {
@@ -13,7 +13,7 @@ namespace WinFormEF.Orders
 
         public string orderDate { get; set; }
 
-        public int CustomerId { get; set; }
+        public int Customerid { get; set; }
 
 
         public string products_list { get; set; }

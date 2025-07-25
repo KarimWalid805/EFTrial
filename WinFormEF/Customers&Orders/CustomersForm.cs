@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using WinFormEF.CatPro;
 using WinFormEF.Customers;
-using WinFormEF.Orders;
 
 namespace WinFormEF
 {
@@ -80,11 +79,11 @@ namespace WinFormEF
             this.dbOrdersContext.Orders.Load();
 
 
-            Orders.Orders order = new Orders.Orders
+            Customers.Orders order = new Orders
             {
                 Address = Address.Text,
                 orderDate = DateTime.Now.ToString(),
-                CustomerId = customer.CustomerId,
+                Customerid = customer.CustomerId,
                 
             };
 
@@ -97,8 +96,13 @@ namespace WinFormEF
 
 
             dbProductContext = new ProductsContext();
+
+            this.dbOrdersContext.Database.EnsureDeleted();
             dbProductContext.Database.EnsureCreated();
+
+
             dbProductContext.Products.Load();
+
 
             var productNames = dbProductContext.Products
                                        .Select(p => p.Name)
@@ -146,7 +150,7 @@ namespace WinFormEF
             string productList = string.Join(",", selectedProducts);
 
 
-            Orders.Orders order = new Orders.Orders { Address = Address2, orderDate = orderDate, CustomerId =  customer.CustomerId, products_list = productList };
+            Customers.Orders order = new Orders { Address = Address2, orderDate = orderDate, Customerid =  customer.CustomerId, products_list = productList };
             dbOrdersContext.Orders.Local.Add(order);
             dbOrdersContext.SaveChanges();
         }
