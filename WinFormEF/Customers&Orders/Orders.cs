@@ -8,7 +8,7 @@ namespace WinFormEF.Customers
 {
     public class Orders
     {
-        public int OrderId { get; set; }
+        public int OrdersId { get; set; }
         public string Address { get; set; }
 
         public string orderDate { get; set; }

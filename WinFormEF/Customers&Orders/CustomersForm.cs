@@ -39,7 +39,6 @@ namespace WinFormEF
 
             this.dbCustomerContext = new CustomerContext();
 
-           
 
             this.dbCustomerContext.Database.EnsureDeleted();
             this.dbCustomerContext.Database.EnsureCreated();
@@ -71,8 +70,8 @@ namespace WinFormEF
 
             this.dbOrdersContext = new OrdersContext();
 
+            this.dbCustomerContext.Database.EnsureDeleted();
 
-            this.dbOrdersContext.Database.EnsureDeleted();
             this.dbOrdersContext.Database.EnsureCreated();
 
 
@@ -97,7 +96,8 @@ namespace WinFormEF
 
             dbProductContext = new ProductsContext();
 
-            this.dbOrdersContext.Database.EnsureDeleted();
+            this.dbCustomerContext.Database.EnsureDeleted();
+
             dbProductContext.Database.EnsureCreated();
 
 
@@ -140,7 +140,7 @@ namespace WinFormEF
 
 
             Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address, age = Age };
-            dbCustomerContext.Customers.Local.Add(customer);
+            dbCustomerContext.Customers.Add(customer);
             dbCustomerContext.SaveChanges();
 
             //Order fields
