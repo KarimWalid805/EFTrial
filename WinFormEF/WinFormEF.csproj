@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dot-net-transitions" Version="1.2.1" />
     <PackageReference Include="Extensions.EntityFrameworkCore.Sqlite.ChangeTracking" Version="9.0.0" />
     <PackageReference Include="MaterialSkin" Version="0.2.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />

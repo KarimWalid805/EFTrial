@@ -28,8 +28,8 @@ namespace WinFormEF
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue600, Primary.Blue700,
-                Primary.Blue200, Accent.LightBlue200,
+                Primary.DeepPurple500, Primary.DeepPurple600,
+                Primary.DeepPurple600, Accent.LightBlue200,
                 TextShade.WHITE
             );
         }

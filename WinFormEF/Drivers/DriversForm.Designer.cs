@@ -47,10 +47,18 @@ namespace WinFormEF
             label2 = new Label();
             label3 = new Label();
             dataGridView1 = new DataGridView();
+            ordersBindingSource = new BindingSource(components);
+            ordersIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            orderDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productslistDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            customerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ordersBindingSource).BeginInit();
             SuspendLayout();
             // 
             // driverFNamelbl
@@ -184,12 +192,67 @@ namespace WinFormEF
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ordersIdDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, orderDateDataGridViewTextBoxColumn, productslistDataGridViewTextBoxColumn, customerIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = ordersBindingSource;
             dataGridView1.Location = new Point(289, 99);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(429, 150);
             dataGridView1.TabIndex = 17;
+            // 
+            // ordersBindingSource
+            // 
+            ordersBindingSource.DataSource = typeof(Customers.Orders);
+            // 
+            // ordersIdDataGridViewTextBoxColumn
+            // 
+            ordersIdDataGridViewTextBoxColumn.DataPropertyName = "OrdersId";
+            ordersIdDataGridViewTextBoxColumn.HeaderText = "OrdersId";
+            ordersIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            ordersIdDataGridViewTextBoxColumn.Name = "ordersIdDataGridViewTextBoxColumn";
+            ordersIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // orderDateDataGridViewTextBoxColumn
+            // 
+            orderDateDataGridViewTextBoxColumn.DataPropertyName = "orderDate";
+            orderDateDataGridViewTextBoxColumn.HeaderText = "orderDate";
+            orderDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
+            orderDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // productslistDataGridViewTextBoxColumn
+            // 
+            productslistDataGridViewTextBoxColumn.DataPropertyName = "products_list";
+            productslistDataGridViewTextBoxColumn.HeaderText = "products_list";
+            productslistDataGridViewTextBoxColumn.MinimumWidth = 6;
+            productslistDataGridViewTextBoxColumn.Name = "productslistDataGridViewTextBoxColumn";
+            productslistDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerIdDataGridViewTextBoxColumn
+            // 
+            customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
+            customerIdDataGridViewTextBoxColumn.HeaderText = "CustomerId";
+            customerIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
+            customerIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            customerDataGridViewTextBoxColumn.MinimumWidth = 6;
+            customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            customerDataGridViewTextBoxColumn.Width = 125;
             // 
             // DriversForm
             // 
@@ -217,6 +280,7 @@ namespace WinFormEF
             ((System.ComponentModel.ISupportInitialize)DriverGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ordersBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -239,5 +303,12 @@ namespace WinFormEF
         private Label label2;
         private Label label3;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ordersIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn orderDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn productslistDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
+        private BindingSource ordersBindingSource;
     }
 }
