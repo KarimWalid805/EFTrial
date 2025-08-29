@@ -35,16 +35,16 @@
             loginbtn = new Button();
             registerbtn = new Button();
             GroupBox = new GroupBox();
+            adminRadio = new RadioButton();
             customerRadio = new RadioButton();
             driverRadio = new RadioButton();
-            adminRadio = new RadioButton();
             GroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // usernamelbl
             // 
             usernamelbl.AutoSize = true;
-            usernamelbl.Location = new Point(20, 24);
+            usernamelbl.Location = new Point(17, 90);
             usernamelbl.Name = "usernamelbl";
             usernamelbl.Size = new Size(116, 20);
             usernamelbl.TabIndex = 0;
@@ -53,7 +53,7 @@
             // passwordlbl
             // 
             passwordlbl.AutoSize = true;
-            passwordlbl.Location = new Point(20, 60);
+            passwordlbl.Location = new Point(17, 126);
             passwordlbl.Name = "passwordlbl";
             passwordlbl.Size = new Size(111, 20);
             passwordlbl.TabIndex = 1;
@@ -61,21 +61,21 @@
             // 
             // usernametxt
             // 
-            usernametxt.Location = new Point(155, 24);
+            usernametxt.Location = new Point(152, 90);
             usernametxt.Name = "usernametxt";
             usernametxt.Size = new Size(169, 27);
             usernametxt.TabIndex = 2;
             // 
             // passwordtxt
             // 
-            passwordtxt.Location = new Point(155, 60);
+            passwordtxt.Location = new Point(152, 126);
             passwordtxt.Name = "passwordtxt";
             passwordtxt.Size = new Size(169, 27);
             passwordtxt.TabIndex = 3;
             // 
             // loginbtn
             // 
-            loginbtn.Location = new Point(118, 107);
+            loginbtn.Location = new Point(115, 173);
             loginbtn.Name = "loginbtn";
             loginbtn.Size = new Size(86, 39);
             loginbtn.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             // registerbtn
             // 
-            registerbtn.Location = new Point(77, 152);
+            registerbtn.Location = new Point(74, 218);
             registerbtn.Name = "registerbtn";
             registerbtn.Size = new Size(178, 62);
             registerbtn.TabIndex = 5;
@@ -98,12 +98,23 @@
             GroupBox.Controls.Add(adminRadio);
             GroupBox.Controls.Add(customerRadio);
             GroupBox.Controls.Add(driverRadio);
-            GroupBox.Location = new Point(345, 24);
+            GroupBox.Location = new Point(337, 90);
             GroupBox.Name = "GroupBox";
             GroupBox.Size = new Size(203, 141);
             GroupBox.TabIndex = 6;
             GroupBox.TabStop = false;
             GroupBox.Text = "You are a(n):";
+            // 
+            // adminRadio
+            // 
+            adminRadio.AutoSize = true;
+            adminRadio.Location = new Point(46, 99);
+            adminRadio.Name = "adminRadio";
+            adminRadio.Size = new Size(74, 24);
+            adminRadio.TabIndex = 2;
+            adminRadio.TabStop = true;
+            adminRadio.Text = "Admin";
+            adminRadio.UseVisualStyleBackColor = true;
             // 
             // customerRadio
             // 
@@ -127,22 +138,11 @@
             driverRadio.Text = "Driver";
             driverRadio.UseVisualStyleBackColor = true;
             // 
-            // adminRadio
-            // 
-            adminRadio.AutoSize = true;
-            adminRadio.Location = new Point(46, 99);
-            adminRadio.Name = "adminRadio";
-            adminRadio.Size = new Size(74, 24);
-            adminRadio.TabIndex = 2;
-            adminRadio.TabStop = true;
-            adminRadio.Text = "Admin";
-            adminRadio.UseVisualStyleBackColor = true;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(565, 281);
+            ClientSize = new Size(565, 305);
             Controls.Add(GroupBox);
             Controls.Add(registerbtn);
             Controls.Add(loginbtn);

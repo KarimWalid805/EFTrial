@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinFormEF.CatPro;
 
 namespace WinFormEF.Customers
 {
@@ -18,6 +20,6 @@ namespace WinFormEF.Customers
 
         public int age { get; set; }
 
-
+        public virtual ObservableCollectionListSource<Orders> Orders { get; } = new();
     }
 }

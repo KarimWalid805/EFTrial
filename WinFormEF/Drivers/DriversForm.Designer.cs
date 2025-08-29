@@ -56,7 +56,7 @@ namespace WinFormEF
             // driverFNamelbl
             // 
             driverFNamelbl.AutoSize = true;
-            driverFNamelbl.Location = new Point(10, 12);
+            driverFNamelbl.Location = new Point(19, 77);
             driverFNamelbl.Name = "driverFNamelbl";
             driverFNamelbl.Size = new Size(133, 20);
             driverFNamelbl.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace WinFormEF
             // driverLNamelbl
             // 
             driverLNamelbl.AutoSize = true;
-            driverLNamelbl.Location = new Point(10, 55);
+            driverLNamelbl.Location = new Point(19, 120);
             driverLNamelbl.Name = "driverLNamelbl";
             driverLNamelbl.Size = new Size(132, 20);
             driverLNamelbl.TabIndex = 1;
@@ -73,14 +73,14 @@ namespace WinFormEF
             // 
             // FirstNametxt
             // 
-            FirstNametxt.Location = new Point(149, 12);
+            FirstNametxt.Location = new Point(158, 77);
             FirstNametxt.Name = "FirstNametxt";
             FirstNametxt.Size = new Size(125, 27);
             FirstNametxt.TabIndex = 2;
             // 
             // LastNametxt
             // 
-            LastNametxt.Location = new Point(149, 55);
+            LastNametxt.Location = new Point(158, 120);
             LastNametxt.Name = "LastNametxt";
             LastNametxt.Size = new Size(125, 27);
             LastNametxt.TabIndex = 3;
@@ -88,7 +88,7 @@ namespace WinFormEF
             // vehicleTypelbl
             // 
             vehicleTypelbl.AutoSize = true;
-            vehicleTypelbl.Location = new Point(52, 146);
+            vehicleTypelbl.Location = new Point(61, 211);
             vehicleTypelbl.Name = "vehicleTypelbl";
             vehicleTypelbl.Size = new Size(91, 20);
             vehicleTypelbl.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace WinFormEF
             // VehicleBox
             // 
             VehicleBox.FormattingEnabled = true;
-            VehicleBox.Location = new Point(149, 143);
+            VehicleBox.Location = new Point(158, 208);
             VehicleBox.Name = "VehicleBox";
             VehicleBox.Size = new Size(125, 28);
             VehicleBox.TabIndex = 5;
@@ -105,7 +105,7 @@ namespace WinFormEF
             // Agelbl
             // 
             Agelbl.AutoSize = true;
-            Agelbl.Location = new Point(106, 101);
+            Agelbl.Location = new Point(115, 166);
             Agelbl.Name = "Agelbl";
             Agelbl.Size = new Size(36, 20);
             Agelbl.TabIndex = 6;
@@ -113,7 +113,7 @@ namespace WinFormEF
             // 
             // Agetxt
             // 
-            Agetxt.Location = new Point(149, 101);
+            Agetxt.Location = new Point(158, 166);
             Agetxt.Name = "Agetxt";
             Agetxt.Size = new Size(125, 27);
             Agetxt.TabIndex = 7;
@@ -121,7 +121,7 @@ namespace WinFormEF
             // DriverGridView
             // 
             DriverGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DriverGridView.Location = new Point(280, 338);
+            DriverGridView.Location = new Point(289, 403);
             DriverGridView.Name = "DriverGridView";
             DriverGridView.RowHeadersWidth = 51;
             DriverGridView.Size = new Size(429, 188);
@@ -135,7 +135,7 @@ namespace WinFormEF
             // Addbtn
             // 
             Addbtn.ForeColor = Color.FromArgb(0, 192, 0);
-            Addbtn.Location = new Point(144, 192);
+            Addbtn.Location = new Point(153, 257);
             Addbtn.Name = "Addbtn";
             Addbtn.Size = new Size(130, 29);
             Addbtn.TabIndex = 9;
@@ -146,7 +146,7 @@ namespace WinFormEF
             // Removebtn
             // 
             Removebtn.ForeColor = Color.Red;
-            Removebtn.Location = new Point(613, 303);
+            Removebtn.Location = new Point(622, 368);
             Removebtn.Name = "Removebtn";
             Removebtn.Size = new Size(94, 29);
             Removebtn.TabIndex = 10;
@@ -157,7 +157,7 @@ namespace WinFormEF
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(280, 11);
+            label1.Location = new Point(289, 76);
             label1.Name = "label1";
             label1.Size = new Size(274, 20);
             label1.TabIndex = 13;
@@ -166,7 +166,7 @@ namespace WinFormEF
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(280, 529);
+            label2.Location = new Point(127, 594);
             label2.Name = "label2";
             label2.Size = new Size(380, 20);
             label2.TabIndex = 14;
@@ -176,7 +176,7 @@ namespace WinFormEF
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(280, 304);
+            label3.Location = new Point(289, 369);
             label3.Name = "label3";
             label3.Size = new Size(126, 31);
             label3.TabIndex = 15;
@@ -185,7 +185,7 @@ namespace WinFormEF
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(280, 34);
+            dataGridView1.Location = new Point(289, 99);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(429, 150);
@@ -195,7 +195,7 @@ namespace WinFormEF
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 575);
+            ClientSize = new Size(730, 623);
             Controls.Add(dataGridView1);
             Controls.Add(label3);
             Controls.Add(label2);

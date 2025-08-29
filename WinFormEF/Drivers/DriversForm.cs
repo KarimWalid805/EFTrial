@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
 using WinFormEF.Drivers;
 
 namespace WinFormEF
 {
-    public partial class DriversForm : Form
+    public partial class DriversForm : MaterialForm
     {
         private DriversContext dbDriversContext;
         private BindingSource driversBindingSource; // Declare driversBindingSource
@@ -13,6 +15,18 @@ namespace WinFormEF
         public DriversForm()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT; // or DARK
+
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue600, Primary.Blue700,  // Primary colors
+                Primary.Blue200,                   // Darker shade
+                Accent.LightBlue200,               // Accent color
+                TextShade.WHITE                    // Text color
+            );
+
             this.driversBindingSource = new BindingSource(); // Initialize driversBindingSource
         }
 

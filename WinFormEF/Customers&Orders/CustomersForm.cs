@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +11,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
 using WinFormEF.CatPro;
 using WinFormEF.Customers;
 
 namespace WinFormEF
 {
-    public partial class CustomersForm : Form
+    public partial class CustomersForm : MaterialForm
     {
 
+
         private CustomerContext dbCustomerContext;
-        private OrdersContext dbOrdersContext;
         private ProductsContext dbProductContext;
 
         private BindingSource customersBindingSource;
@@ -25,6 +28,18 @@ namespace WinFormEF
         public CustomersForm()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT; // or DARK
+
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue600, Primary.Blue700,  // Primary colors
+                Primary.Blue200,                   // Darker shade
+                Accent.LightBlue200,               // Accent color
+                TextShade.WHITE                    // Text color
+            );
+
             this.customersBindingSource = new BindingSource();
 
             this.ordersBindingSource = new BindingSource();
@@ -45,7 +60,7 @@ namespace WinFormEF
 
 
             this.dbCustomerContext.Customers.Load();
-        
+
 
 
             Customer customer = new Customer
@@ -56,7 +71,7 @@ namespace WinFormEF
                 age = (int)agenum.Value
             };
 
-          
+
 
             //loads database table categories into the categories DataGridView
             this.customersBindingSource.DataSource = dbCustomerContext.Customers.Local.ToBindingList();
@@ -64,27 +79,17 @@ namespace WinFormEF
 
 
 
-//-----------------------------------------------------------------------------------------------------------------------------
-
-
-            this.dbOrdersContext = new OrdersContext();
-
-  
-
-            this.dbOrdersContext.Orders.Load();
-
-
-            Orders order = new Orders
-            {
-                Address = Address.Text,
-                orderDate = DateTime.Now.ToString(),
-                Customerid = customer.CustomerId,
-                
-            };
+            //-----------------------------------------------------------------------------------------------------------------------------
 
 
 
-            this.ordersBindingSource.DataSource = dbOrdersContext.Orders.Local.ToBindingList();
+
+
+
+
+
+            this.ordersBindingSource.DataSource = dbCustomerContext.Orders.Local.ToBindingList();
+
             this.OrderGridView.DataSource = this.ordersBindingSource;
 
             //---------------------------------------------------------------------------------------------------------------------------
@@ -92,7 +97,7 @@ namespace WinFormEF
 
             dbProductContext = new ProductsContext();
 
-           
+
 
 
             dbProductContext.Products.Load();
@@ -106,8 +111,8 @@ namespace WinFormEF
             ProductListBox.Items.AddRange(productNames.ToArray());
 
 
-            
-            
+
+
             //---------------------------------------------------------------------------------------------------------------
 
             if (Session.UserType == "Admin")
@@ -123,7 +128,7 @@ namespace WinFormEF
             }
         }
 
-        private void AddCust_Click(object sender, EventArgs e)
+        private void MakeOrder_Click(object sender, EventArgs e)
         {
 
             // Customers fields
@@ -132,21 +137,24 @@ namespace WinFormEF
             string Address = Addresstxt.Text.Trim();
             int Age = (int)agenum.Value;
 
-
-            Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address, age = Age };
-            dbCustomerContext.Customers.Add(customer);
-            dbCustomerContext.SaveChanges();
-
             //Order fields
-            string Address2 = Addresstxt.Text.Trim();
+            string OrderAddress = Addresstxt.Text.Trim();
             string orderDate = DateTime.Now.ToString();
             var selectedProducts = ProductListBox.SelectedItems.Cast<string>().ToList();
             string productList = string.Join(",", selectedProducts);
 
 
-            Orders order = new Orders { Address = Address2, orderDate = orderDate, Customerid =  customer.CustomerId, products_list = productList };
-            dbOrdersContext.Orders.Add(order);
-            dbOrdersContext.SaveChanges();
+            Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address, age = Age };
+            Orders order = new Orders { Address = OrderAddress, orderDate = DateTime.Now, Customer = customer, products_list = productList };
+
+            dbCustomerContext.Customers.Add(customer);
+            dbCustomerContext.Orders.Add(order);
+
+            dbCustomerContext.SaveChanges();
+
+            
         }
+
+       
     }
 }

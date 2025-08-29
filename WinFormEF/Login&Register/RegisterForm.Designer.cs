@@ -45,7 +45,7 @@
             // usernamelbl
             // 
             usernamelbl.AutoSize = true;
-            usernamelbl.Location = new Point(28, 40);
+            usernamelbl.Location = new Point(31, 75);
             usernamelbl.Name = "usernamelbl";
             usernamelbl.Size = new Size(120, 20);
             usernamelbl.TabIndex = 0;
@@ -54,7 +54,7 @@
             // passwordlbl
             // 
             passwordlbl.AutoSize = true;
-            passwordlbl.Location = new Point(28, 73);
+            passwordlbl.Location = new Point(31, 108);
             passwordlbl.Name = "passwordlbl";
             passwordlbl.Size = new Size(108, 20);
             passwordlbl.TabIndex = 1;
@@ -63,7 +63,7 @@
             // conpasslbl
             // 
             conpasslbl.AutoSize = true;
-            conpasslbl.Location = new Point(28, 106);
+            conpasslbl.Location = new Point(31, 141);
             conpasslbl.Name = "conpasslbl";
             conpasslbl.Size = new Size(127, 20);
             conpasslbl.TabIndex = 2;
@@ -71,28 +71,28 @@
             // 
             // txtusername
             // 
-            txtusername.Location = new Point(163, 40);
+            txtusername.Location = new Point(166, 75);
             txtusername.Name = "txtusername";
             txtusername.Size = new Size(125, 27);
             txtusername.TabIndex = 3;
             // 
             // txtconfirmpassword
             // 
-            txtconfirmpassword.Location = new Point(161, 106);
+            txtconfirmpassword.Location = new Point(164, 141);
             txtconfirmpassword.Name = "txtconfirmpassword";
             txtconfirmpassword.Size = new Size(125, 27);
             txtconfirmpassword.TabIndex = 4;
             // 
             // txtpassword
             // 
-            txtpassword.Location = new Point(163, 73);
+            txtpassword.Location = new Point(166, 108);
             txtpassword.Name = "txtpassword";
             txtpassword.Size = new Size(125, 27);
             txtpassword.TabIndex = 5;
             // 
             // registerbtn
             // 
-            registerbtn.Location = new Point(79, 154);
+            registerbtn.Location = new Point(82, 189);
             registerbtn.Name = "registerbtn";
             registerbtn.Size = new Size(125, 29);
             registerbtn.TabIndex = 6;
@@ -102,7 +102,7 @@
             // 
             // loginbtn
             // 
-            loginbtn.Location = new Point(60, 189);
+            loginbtn.Location = new Point(63, 224);
             loginbtn.Name = "loginbtn";
             loginbtn.Size = new Size(166, 29);
             loginbtn.TabIndex = 7;
@@ -114,7 +114,7 @@
             // 
             GroupBox.Controls.Add(customerRadio);
             GroupBox.Controls.Add(driverRadio);
-            GroupBox.Location = new Point(326, 12);
+            GroupBox.Location = new Point(314, 98);
             GroupBox.Name = "GroupBox";
             GroupBox.Size = new Size(203, 143);
             GroupBox.TabIndex = 8;
@@ -147,7 +147,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(551, 255);
+            ClientSize = new Size(551, 305);
             Controls.Add(GroupBox);
             Controls.Add(loginbtn);
             Controls.Add(registerbtn);

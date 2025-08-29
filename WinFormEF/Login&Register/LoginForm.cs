@@ -1,4 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using MaterialSkin.Controls;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +14,7 @@ using System.Windows.Forms;
 
 namespace WinFormEF
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : MaterialForm
     {
         private SqlConnection con;
         private SqlCommand cmd;
@@ -19,6 +22,18 @@ namespace WinFormEF
         public LoginForm()
         {
             InitializeComponent();
+
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT; // or DARK
+
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue600, Primary.Blue700,  // Primary colors
+                Primary.Blue200,                   // Darker shade
+                Accent.LightBlue200,               // Accent color
+                TextShade.WHITE                    // Text color
+            );
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
