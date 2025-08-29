@@ -8,10 +8,10 @@ public class DriversContext : DbContext
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=drivers;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=OnlineDeliveryDB;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
+    {   
         modelBuilder.Entity<Driver>().HasData(
             new Driver { DriverId = 1, firstName = "Robert", lastName = "Jacobs", age = 34, vehicleType = "Truck" },
             new Driver { DriverId = 2, firstName = "Jack", lastName = "William", age = 55, vehicleType = "Train" },

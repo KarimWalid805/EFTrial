@@ -46,7 +46,6 @@ namespace WinFormEF
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
@@ -122,7 +121,7 @@ namespace WinFormEF
             // DriverGridView
             // 
             DriverGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DriverGridView.Location = new Point(12, 457);
+            DriverGridView.Location = new Point(280, 338);
             DriverGridView.Name = "DriverGridView";
             DriverGridView.RowHeadersWidth = 51;
             DriverGridView.Size = new Size(429, 188);
@@ -136,7 +135,7 @@ namespace WinFormEF
             // Addbtn
             // 
             Addbtn.ForeColor = Color.FromArgb(0, 192, 0);
-            Addbtn.Location = new Point(311, 20);
+            Addbtn.Location = new Point(144, 192);
             Addbtn.Name = "Addbtn";
             Addbtn.Size = new Size(130, 29);
             Addbtn.TabIndex = 9;
@@ -147,7 +146,7 @@ namespace WinFormEF
             // Removebtn
             // 
             Removebtn.ForeColor = Color.Red;
-            Removebtn.Location = new Point(345, 422);
+            Removebtn.Location = new Point(613, 303);
             Removebtn.Name = "Removebtn";
             Removebtn.Size = new Size(94, 29);
             Removebtn.TabIndex = 10;
@@ -158,7 +157,7 @@ namespace WinFormEF
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 190);
+            label1.Location = new Point(280, 11);
             label1.Name = "label1";
             label1.Size = new Size(274, 20);
             label1.TabIndex = 13;
@@ -167,7 +166,7 @@ namespace WinFormEF
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 648);
+            label2.Location = new Point(280, 529);
             label2.Name = "label2";
             label2.Size = new Size(380, 20);
             label2.TabIndex = 14;
@@ -177,25 +176,16 @@ namespace WinFormEF
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 423);
+            label3.Location = new Point(280, 304);
             label3.Name = "label3";
             label3.Size = new Size(126, 31);
             label3.TabIndex = 15;
             label3.Text = "All Drivers";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(10, 383);
-            label4.Name = "label4";
-            label4.Size = new Size(112, 20);
-            label4.TabIndex = 16;
-            label4.Text = "Admin Controls";
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 213);
+            dataGridView1.Location = new Point(280, 34);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(429, 150);
@@ -205,9 +195,8 @@ namespace WinFormEF
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(471, 681);
+            ClientSize = new Size(730, 575);
             Controls.Add(dataGridView1);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -249,7 +238,6 @@ namespace WinFormEF
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
         private DataGridView dataGridView1;
     }
 }

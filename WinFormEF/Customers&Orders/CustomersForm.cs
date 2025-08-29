@@ -40,7 +40,6 @@ namespace WinFormEF
             this.dbCustomerContext = new CustomerContext();
 
 
-            this.dbCustomerContext.Database.EnsureDeleted();
             this.dbCustomerContext.Database.EnsureCreated();
 
 
@@ -70,15 +69,12 @@ namespace WinFormEF
 
             this.dbOrdersContext = new OrdersContext();
 
-            this.dbCustomerContext.Database.EnsureDeleted();
-
-            this.dbOrdersContext.Database.EnsureCreated();
-
+  
 
             this.dbOrdersContext.Orders.Load();
 
 
-            Customers.Orders order = new Orders
+            Orders order = new Orders
             {
                 Address = Address.Text,
                 orderDate = DateTime.Now.ToString(),
@@ -96,9 +92,7 @@ namespace WinFormEF
 
             dbProductContext = new ProductsContext();
 
-            this.dbCustomerContext.Database.EnsureDeleted();
-
-            dbProductContext.Database.EnsureCreated();
+           
 
 
             dbProductContext.Products.Load();
@@ -150,8 +144,8 @@ namespace WinFormEF
             string productList = string.Join(",", selectedProducts);
 
 
-            Customers.Orders order = new Orders { Address = Address2, orderDate = orderDate, Customerid =  customer.CustomerId, products_list = productList };
-            dbOrdersContext.Orders.Local.Add(order);
+            Orders order = new Orders { Address = Address2, orderDate = orderDate, Customerid =  customer.CustomerId, products_list = productList };
+            dbOrdersContext.Orders.Add(order);
             dbOrdersContext.SaveChanges();
         }
     }

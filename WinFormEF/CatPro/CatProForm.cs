@@ -25,8 +25,7 @@ namespace WinFormEF
             this.dbContext = new ProductsContext();
 
             //Uncommon the line below to start fresh with a new database.
-            this.dbContext.Database.EnsureDeleted();
-            this.dbContext.Database.EnsureCreated();
+            
 
             this.dbContext.Categories.Load();
             this.dbContext.Products.Load();

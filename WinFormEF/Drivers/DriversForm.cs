@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
+using WinFormEF.Drivers;
 
 namespace WinFormEF
 {
     public partial class DriversForm : Form
     {
-        private Drivers.DriversContext dbContext;
+        private DriversContext dbDriversContext;
         private BindingSource driversBindingSource; // Declare driversBindingSource
 
         public DriversForm()
@@ -23,20 +24,21 @@ namespace WinFormEF
             base.OnLoad(e);
             VehicleBox.Items.AddRange(new string[] { "Train", "Car", "Truck" });
 
-            this.dbContext = new Drivers.DriversContext();
+            this.dbDriversContext = new DriversContext();
 
-            //Uncomment the line below to start fresh with a new database.
-            this.dbContext.Database.EnsureDeleted();
-            this.dbContext.Database.EnsureCreated();
+            this.dbDriversContext.Database.EnsureCreated();
 
-            this.dbContext.Drivers.Load();
-            Drivers.Driver driver = new Drivers.Driver
+
+            this.dbDriversContext.Drivers.Load();
+            Driver driver = new Driver
             {
                 firstName = FirstNametxt.Text,
-                lastName = LastNametxt.Text
+                lastName = LastNametxt.Text,
+                age = (int)Agetxt.Value,
+                vehicleType = VehicleBox.ToString()
+
             };
-            //loads database table categories into the categories DataGridView
-            this.driversBindingSource.DataSource = dbContext.Drivers.Local.ToBindingList();
+            this.driversBindingSource.DataSource = dbDriversContext.Drivers.Local.ToBindingList();
             this.DriverGridView.DataSource = this.driversBindingSource;
 
             if (Session.UserType == "Admin")
@@ -59,9 +61,9 @@ namespace WinFormEF
             int Age = (int)Agetxt.Value;
             string vehicleType = VehicleBox.SelectedItem?.ToString();
 
-            Drivers.Driver driver = new Drivers.Driver { firstName = firstName, lastName = lastName, age = Age, vehicleType = vehicleType };
-            dbContext.Drivers.Local.Add(driver);
-            dbContext.SaveChanges();
+            Driver driver = new Driver { firstName = firstName, lastName = lastName, age = Age, vehicleType = vehicleType };
+            dbDriversContext.Drivers.Local.Add(driver);
+            dbDriversContext.SaveChanges();
         }
 
         private void Removebtn_Click(object sender, EventArgs e)
@@ -70,7 +72,7 @@ namespace WinFormEF
             {
                 string PMessage = "Are you sure you want to remove this driver?";
                 string PTitle = "Delete Confirmation";
-                var SelectedDriver = DriverGridView.CurrentRow.DataBoundItem as Drivers.Driver;
+                var SelectedDriver = DriverGridView.CurrentRow.DataBoundItem as Driver;
 
 
                 if (SelectedDriver != null)
@@ -79,9 +81,9 @@ namespace WinFormEF
 
                     if (MessageBox.Show(PMessage, PTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        dbContext.Drivers.Attach(SelectedDriver);
-                        dbContext.Drivers.Remove(SelectedDriver);
-                        dbContext.SaveChanges();
+                        dbDriversContext.Drivers.Attach(SelectedDriver);
+                        dbDriversContext.Drivers.Remove(SelectedDriver);
+                        dbDriversContext.SaveChanges();
                     }
 
                 }
@@ -91,7 +93,7 @@ namespace WinFormEF
 
         private void Savebtn_Click(object sender, EventArgs e)
         {
-            dbContext.SaveChanges();
+            dbDriversContext.SaveChanges();
         }
 
      

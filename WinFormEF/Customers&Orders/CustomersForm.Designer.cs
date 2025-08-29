@@ -186,7 +186,7 @@
             // customersDataGridView
             // 
             customersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customersDataGridView.Location = new Point(11, 468);
+            customersDataGridView.Location = new Point(28, 468);
             customersDataGridView.Name = "customersDataGridView";
             customersDataGridView.RowHeadersWidth = 51;
             customersDataGridView.Size = new Size(425, 201);

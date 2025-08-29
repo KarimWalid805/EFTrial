@@ -25,7 +25,7 @@ namespace WinFormEF
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = users; TrustServerCertificate = True;");
+            con = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = OnlineDeliveryDB; TrustServerCertificate = True;");
             con.Open();
         }
 
