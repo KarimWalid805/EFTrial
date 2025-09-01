@@ -47,7 +47,7 @@
             productslistDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             bindingSource1 = new BindingSource(components);
             cancelorderbtn = new Button();
-            label1 = new Label();
+            CustomersTablelbl = new Label();
             customersDataGridView = new DataGridView();
             customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -216,15 +216,15 @@
             cancelorderbtn.Text = "Cancel Order";
             cancelorderbtn.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // CustomersTablelbl
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(28, 515);
-            label1.Name = "label1";
-            label1.Size = new Size(189, 31);
-            label1.TabIndex = 18;
-            label1.Text = "Customers Table";
+            CustomersTablelbl.AutoSize = true;
+            CustomersTablelbl.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CustomersTablelbl.Location = new Point(28, 515);
+            CustomersTablelbl.Name = "CustomersTablelbl";
+            CustomersTablelbl.Size = new Size(189, 31);
+            CustomersTablelbl.TabIndex = 18;
+            CustomersTablelbl.Text = "Customers Table";
             // 
             // customersDataGridView
             // 
@@ -317,7 +317,7 @@
             Controls.Add(agenum);
             Controls.Add(Agelbl);
             Controls.Add(customersDataGridView);
-            Controls.Add(label1);
+            Controls.Add(CustomersTablelbl);
             Controls.Add(cancelorderbtn);
             Controls.Add(OrderGridView);
             Controls.Add(label3);
@@ -356,7 +356,7 @@
         private Label label3;
         private DataGridView OrderGridView;
         private Button cancelorderbtn;
-        private Label label1;
+        private Label CustomersTablelbl;
         private DataGridView customersDataGridView;
         private Label Agelbl;
         private NumericUpDown agenum;

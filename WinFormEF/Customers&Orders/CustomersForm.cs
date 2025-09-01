@@ -122,7 +122,7 @@ namespace WinFormEF
             }
             else
             {
-
+                CustomersTablelbl.Visible = false;
                 customersDataGridView.Visible = false;
 
             }

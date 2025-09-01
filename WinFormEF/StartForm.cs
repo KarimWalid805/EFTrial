@@ -32,9 +32,20 @@ namespace WinFormEF
 
             if (Session.UserType == "Customer")
             {
-                
+                CustomersForm costumerForm = new CustomersForm();
+                costumerForm.ShowDialog();
+            }
 
+            if (Session.UserType == "Driver")
+            {
+                DriversForm driversForm = new DriversForm();
+                driversForm.ShowDialog();
+            }
 
+            if (Session.UserType == "Driver")
+            {
+                DriversForm driversForm = new DriversForm();
+                driversForm.ShowDialog();
             }
         }
 
