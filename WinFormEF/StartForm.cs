@@ -1,5 +1,10 @@
 ﻿using MaterialSkin;
+using MaterialSkin;
 using MaterialSkin.Controls;
+using MaterialSkin.Controls;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,15 +14,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Windows.Forms;
+using WinFormEF.Customers;
+using WinFormEF.Customers;
+using WinFormEF.Drivers;
+using WinFormEF.Drivers;
 
 namespace WinFormEF
 {
     public partial class StartForm : MaterialForm
     {
+        public DriversContext dbDriversContext;
+        public CustomerContext customerContext;
+
+        public BindingSource driversBindingSource; // Declare driversBindingSource
+        private BindingSource customersBindingSource;
+
         public StartForm()
         {
             InitializeComponent();
+
+            this.driversBindingSource = new BindingSource(); // Initialize driversBindingSource
+            this.customersBindingSource = new BindingSource(); // Initialize customersBindingSource
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -48,6 +66,38 @@ namespace WinFormEF
                 driversForm.ShowDialog();
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.dbDriversContext = new DriversContext();
+            this.customerContext = new CustomerContext();
+
+            this.dbDriversContext.Database.EnsureCreated();
+            this.customerContext.Database.EnsureCreated();
+
+
+
+            this.dbDriversContext.Drivers.Load();
+            this.customerContext.Customers.Load();
+
+
+
+            this.driversBindingSource.DataSource = dbDriversContext.Drivers.Local.ToBindingList();
+            this.DriverDataGrid.DataSource = this.driversBindingSource;
+
+            this.customersBindingSource.DataSource = customerContext.Customers.Local.ToBindingList();
+            this.CustomerDataGrid.DataSource = this.customersBindingSource;
+
+            int custCount = customerContext.Customers.Count(); // EF Core LINQ Count()
+            CustCount.Text = custCount.ToString();
+
+            int driversCount = dbDriversContext.Drivers.Count(); // EF Core LINQ Count()
+            DriverCount.Text = driversCount.ToString();
+
+
+        }
+
 
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -55,7 +105,7 @@ namespace WinFormEF
 
         }
 
-         
+
         private void catpronavbtn_Click(object sender, EventArgs e)
         {
             CatProForm catproForm = new CatProForm();
@@ -68,7 +118,7 @@ namespace WinFormEF
             driversForm.ShowDialog();
 
         }
-        
+
         private void deliverynavbtn_Click(object sender, EventArgs e)
         {
             DeliveriesForm deliveryForm = new DeliveriesForm();
@@ -80,5 +130,9 @@ namespace WinFormEF
             CustomersForm costumerForm = new CustomersForm();
             costumerForm.ShowDialog();
         }
+
+       
     }
+
+
 }

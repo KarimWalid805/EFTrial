@@ -35,11 +35,30 @@
             customernavbtn = new Button();
             desclbl = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             label1 = new Label();
+            CustCount = new TextBox();
+            label2 = new Label();
+            DriverCount = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            DriverDataGrid = new DataGridView();
+            driverIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vehicleTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            driverBindingSource = new BindingSource(components);
+            CustomerDataGrid = new DataGridView();
+            customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            customerBindingSource = new BindingSource(components);
             flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DriverDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)driverBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CustomerDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // catpronavbtn
@@ -116,26 +135,42 @@
             flowLayoutPanel1.Controls.Add(catpronavbtn);
             flowLayoutPanel1.Location = new Point(0, 64);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(191, 501);
+            flowLayoutPanel1.Size = new Size(191, 317);
             flowLayoutPanel1.TabIndex = 7;
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(label1);
-            flowLayoutPanel2.Location = new Point(192, 65);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(778, 318);
-            flowLayoutPanel2.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 0);
+            label1.Location = new Point(743, 512);
             label1.Name = "label1";
             label1.Size = new Size(208, 28);
             label1.TabIndex = 0;
             label1.Text = "Number of Customers:";
+            // 
+            // CustCount
+            // 
+            CustCount.Location = new Point(957, 512);
+            CustCount.Name = "CustCount";
+            CustCount.Size = new Size(59, 27);
+            CustCount.TabIndex = 11;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(743, 218);
+            label2.Name = "label2";
+            label2.Size = new Size(177, 28);
+            label2.TabIndex = 0;
+            label2.Text = "Number of Drivers:";
+            // 
+            // DriverCount
+            // 
+            DriverCount.Location = new Point(926, 218);
+            DriverCount.Name = "DriverCount";
+            DriverCount.Size = new Size(53, 27);
+            DriverCount.TabIndex = 12;
             // 
             // contextMenuStrip1
             // 
@@ -143,20 +178,140 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // DriverDataGrid
+            // 
+            DriverDataGrid.AutoGenerateColumns = false;
+            DriverDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DriverDataGrid.Columns.AddRange(new DataGridViewColumn[] { driverIdDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, vehicleTypeDataGridViewTextBoxColumn });
+            DriverDataGrid.DataSource = driverBindingSource;
+            DriverDataGrid.Location = new Point(197, 83);
+            DriverDataGrid.Name = "DriverDataGrid";
+            DriverDataGrid.RowHeadersWidth = 51;
+            DriverDataGrid.Size = new Size(527, 291);
+            DriverDataGrid.TabIndex = 9;
+            // 
+            // driverIdDataGridViewTextBoxColumn
+            // 
+            driverIdDataGridViewTextBoxColumn.DataPropertyName = "DriverId";
+            driverIdDataGridViewTextBoxColumn.HeaderText = "DriverId";
+            driverIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            driverIdDataGridViewTextBoxColumn.Name = "driverIdDataGridViewTextBoxColumn";
+            driverIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "firstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "firstName";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "lastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "lastName";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "age";
+            ageDataGridViewTextBoxColumn.HeaderText = "age";
+            ageDataGridViewTextBoxColumn.MinimumWidth = 6;
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // vehicleTypeDataGridViewTextBoxColumn
+            // 
+            vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "vehicleType";
+            vehicleTypeDataGridViewTextBoxColumn.HeaderText = "vehicleType";
+            vehicleTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
+            vehicleTypeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // driverBindingSource
+            // 
+            driverBindingSource.DataSource = typeof(Drivers.Driver);
+            // 
+            // CustomerDataGrid
+            // 
+            CustomerDataGrid.AutoGenerateColumns = false;
+            CustomerDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CustomerDataGrid.Columns.AddRange(new DataGridViewColumn[] { customerIdDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn1, lastNameDataGridViewTextBoxColumn1, addressDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn1 });
+            CustomerDataGrid.DataSource = customerBindingSource;
+            CustomerDataGrid.Location = new Point(197, 392);
+            CustomerDataGrid.Name = "CustomerDataGrid";
+            CustomerDataGrid.RowHeadersWidth = 51;
+            CustomerDataGrid.Size = new Size(527, 273);
+            CustomerDataGrid.TabIndex = 10;
+            // 
+            // customerIdDataGridViewTextBoxColumn
+            // 
+            customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
+            customerIdDataGridViewTextBoxColumn.HeaderText = "CustomerId";
+            customerIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
+            customerIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            firstNameDataGridViewTextBoxColumn1.DataPropertyName = "firstName";
+            firstNameDataGridViewTextBoxColumn1.HeaderText = "firstName";
+            firstNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            firstNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            lastNameDataGridViewTextBoxColumn1.DataPropertyName = "lastName";
+            lastNameDataGridViewTextBoxColumn1.HeaderText = "lastName";
+            lastNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            lastNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // ageDataGridViewTextBoxColumn1
+            // 
+            ageDataGridViewTextBoxColumn1.DataPropertyName = "age";
+            ageDataGridViewTextBoxColumn1.HeaderText = "age";
+            ageDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            ageDataGridViewTextBoxColumn1.Name = "ageDataGridViewTextBoxColumn1";
+            ageDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Customers.Customer);
+            // 
             // StartForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(981, 378);
-            Controls.Add(flowLayoutPanel2);
+            ClientSize = new Size(1083, 677);
+            Controls.Add(label1);
+            Controls.Add(CustCount);
+            Controls.Add(CustomerDataGrid);
+            Controls.Add(label2);
+            Controls.Add(DriverCount);
+            Controls.Add(DriverDataGrid);
             Controls.Add(flowLayoutPanel1);
             Name = "StartForm";
             Text = "StartForm";
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DriverDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)driverBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CustomerDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -168,8 +323,24 @@
         private Button customernavbtn;
         private Label desclbl;
         private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel2;
         private Label label1;
         private ContextMenuStrip contextMenuStrip1;
+        private Label label2;
+        private DataGridView DriverDataGrid;
+        private DataGridViewTextBoxColumn driverIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn vehicleTypeDataGridViewTextBoxColumn;
+        private BindingSource driverBindingSource;
+        private DataGridView CustomerDataGrid;
+        private DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn1;
+        private BindingSource customerBindingSource;
+        private TextBox CustCount;
+        private TextBox DriverCount;
     }
 }

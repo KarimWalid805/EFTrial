@@ -10,10 +10,10 @@ namespace WinFormEF
 {
     public partial class DriversForm : MaterialForm
     {
-        private DriversContext dbDriversContext;
+        public DriversContext dbDriversContext;
         public CustomerContext dbOrdersContext;
 
-        private BindingSource driversBindingSource; // Declare driversBindingSource
+        public BindingSource driversBindingSource; // Declare driversBindingSource
 
         public DriversForm()
         {
