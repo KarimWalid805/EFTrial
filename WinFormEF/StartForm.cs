@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WinFormEF
 {
     public partial class StartForm : MaterialForm
@@ -28,6 +29,13 @@ namespace WinFormEF
                 Accent.LightBlue200,               // Accent color
                 TextShade.WHITE                    // Text color
             );
+
+            if (Session.UserType == "Customer")
+            {
+                
+
+
+            }
         }
 
 
@@ -36,6 +44,7 @@ namespace WinFormEF
 
         }
 
+         
         private void catpronavbtn_Click(object sender, EventArgs e)
         {
             CatProForm catproForm = new CatProForm();
@@ -48,7 +57,7 @@ namespace WinFormEF
             driversForm.ShowDialog();
 
         }
-
+        
         private void deliverynavbtn_Click(object sender, EventArgs e)
         {
             DeliveriesForm deliveryForm = new DeliveriesForm();

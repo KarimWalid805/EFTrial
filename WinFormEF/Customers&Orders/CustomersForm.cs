@@ -20,11 +20,11 @@ namespace WinFormEF
     {
 
 
-        private CustomerContext dbCustomerContext;
+        public CustomerContext dbCustomerContext;
         private ProductsContext dbProductContext;
 
         private BindingSource customersBindingSource;
-        private BindingSource ordersBindingSource;
+        public BindingSource ordersBindingSource;
         public CustomersForm()
         {
             InitializeComponent();
@@ -152,7 +152,10 @@ namespace WinFormEF
 
             dbCustomerContext.SaveChanges();
 
-            
+            MessageBox.Show("Your order of "+ productList + " to address: "+ Address +" has been placed!", "Order Confirmation",
+    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
         }
 
        

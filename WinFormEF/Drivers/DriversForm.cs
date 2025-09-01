@@ -3,6 +3,7 @@ using MaterialSkin.Controls;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
+using WinFormEF.Customers;
 using WinFormEF.Drivers;
 
 namespace WinFormEF
@@ -10,6 +11,8 @@ namespace WinFormEF
     public partial class DriversForm : MaterialForm
     {
         private DriversContext dbDriversContext;
+        public CustomerContext dbOrdersContext;
+
         private BindingSource driversBindingSource; // Declare driversBindingSource
 
         public DriversForm()
@@ -28,6 +31,7 @@ namespace WinFormEF
             );
 
             this.driversBindingSource = new BindingSource(); // Initialize driversBindingSource
+            this.ordersBindingSource = new BindingSource();
         }
 
 
@@ -39,11 +43,15 @@ namespace WinFormEF
             VehicleBox.Items.AddRange(new string[] { "Train", "Car", "Truck" });
 
             this.dbDriversContext = new DriversContext();
+            this.dbOrdersContext = new CustomerContext();
+
 
             this.dbDriversContext.Database.EnsureCreated();
 
 
             this.dbDriversContext.Drivers.Load();
+            this.dbOrdersContext.Orders.Load();
+
             Driver driver = new Driver
             {
                 firstName = FirstNametxt.Text,
@@ -55,6 +63,8 @@ namespace WinFormEF
             this.driversBindingSource.DataSource = dbDriversContext.Drivers.Local.ToBindingList();
             this.DriverGridView.DataSource = this.driversBindingSource;
 
+            this.ordersBindingSource.DataSource = dbOrdersContext.Orders.Local.ToBindingList();
+            this.OrderGridView.DataSource = this.ordersBindingSource;
             if (Session.UserType == "Admin")
             {
                 

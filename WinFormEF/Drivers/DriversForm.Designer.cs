@@ -46,18 +46,18 @@ namespace WinFormEF
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            dataGridView1 = new DataGridView();
-            ordersBindingSource = new BindingSource(components);
+            OrderGridView = new DataGridView();
             ordersIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             orderDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productslistDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ordersBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -190,21 +190,17 @@ namespace WinFormEF
             label3.TabIndex = 15;
             label3.Text = "All Drivers";
             // 
-            // dataGridView1
+            // OrderGridView
             // 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ordersIdDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, orderDateDataGridViewTextBoxColumn, productslistDataGridViewTextBoxColumn, customerIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = ordersBindingSource;
-            dataGridView1.Location = new Point(289, 99);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(429, 150);
-            dataGridView1.TabIndex = 17;
-            // 
-            // ordersBindingSource
-            // 
-            ordersBindingSource.DataSource = typeof(Customers.Orders);
+            OrderGridView.AutoGenerateColumns = false;
+            OrderGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            OrderGridView.Columns.AddRange(new DataGridViewColumn[] { ordersIdDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, orderDateDataGridViewTextBoxColumn, productslistDataGridViewTextBoxColumn, customerIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn });
+            OrderGridView.DataSource = ordersBindingSource;
+            OrderGridView.Location = new Point(289, 99);
+            OrderGridView.Name = "OrderGridView";
+            OrderGridView.RowHeadersWidth = 51;
+            OrderGridView.Size = new Size(429, 150);
+            OrderGridView.TabIndex = 17;
             // 
             // ordersIdDataGridViewTextBoxColumn
             // 
@@ -254,12 +250,16 @@ namespace WinFormEF
             customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
             customerDataGridViewTextBoxColumn.Width = 125;
             // 
+            // ordersBindingSource
+            // 
+            ordersBindingSource.DataSource = typeof(Customers.Orders);
+            // 
             // DriversForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(730, 623);
-            Controls.Add(dataGridView1);
+            Controls.Add(OrderGridView);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -279,7 +279,7 @@ namespace WinFormEF
             ((System.ComponentModel.ISupportInitialize)Agetxt).EndInit();
             ((System.ComponentModel.ISupportInitialize)DriverGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)OrderGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -302,7 +302,7 @@ namespace WinFormEF
         private Label label1;
         private Label label2;
         private Label label3;
-        private DataGridView dataGridView1;
+        private DataGridView OrderGridView;
         private DataGridViewTextBoxColumn ordersIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn orderDateDataGridViewTextBoxColumn;
