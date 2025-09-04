@@ -14,13 +14,22 @@ namespace WinFormEF.Drivers
 
         public int DeliveryId { get; set; }
 
-        public virtual ObservableCollectionListSource<Orders> OrderId { get; } = new();
 
         public int DriverId { get; set; }
+        public int OrderId { get; set; }
+
+        public Driver Driver { get; set; }
+        public Orders Order { get; set; }
+
+
+
+
+        public DateTime DeliveryDate { get; set; }
 
         public string customersName { get; set; }
 
         public string customersAddress { get; set; }
+
 
     }
 }

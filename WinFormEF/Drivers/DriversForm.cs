@@ -86,34 +86,50 @@ namespace WinFormEF
             string lastName = LastNametxt.Text.Trim();
             int Age = (int)Agetxt.Value;
             string vehicleType = VehicleBox.SelectedItem?.ToString();
-
-
-            //get the orderId from the datagridview
-            DataGridViewRow selectedRow1 = OrderGridView.SelectedRows[0];
-
-            string cellValue = selectedRow1.Cells["OrderId"].Value.ToString();
-
-            DataGridViewRow currentRow = OrderGridView.CurrentRow;
-
-            string OrderIdCellValue = currentRow.Cells["OrderId"].Value.ToString();
-
-
-            //get the DOA from the datagridview
-            DataGridViewRow selectedRow2 = OrderGridView.SelectedRows[0];
-
-            DateTime cellValue2 = (DateTime)selectedRow2.Cells["orderDate"].Value;
-
-           
-            
-
-
-
-
             Driver driver = new Driver { firstName = firstName, lastName = lastName, age = Age, vehicleType = vehicleType };
             dbDriversContext.Drivers.Local.Add(driver);
             dbDriversContext.SaveChanges();
 
-           // Delivery delivery = new Delivery( driver.DriverId, OrderIdCellValue, cellValue2, C);
+            dbDriversContext.Drivers.Add(driver);
+            dbDriversContext.SaveChanges(); // Save first so DriverId is generated
+
+            // Get selected orderId
+            DataGridViewRow selectedRow = OrderGridView.SelectedRows[0];
+            int orderId = (int)selectedRow.Cells["OrderId"].Value;
+
+            // Load order including customer
+            var order = dbOrdersContext.Orders
+                .Include(o => o.Customer) // make sure Customer is loaded
+                .FirstOrDefault(o => o.OrdersId == orderId);
+
+            if (order == null)
+            {
+                MessageBox.Show("Order not found!");
+                return;
+            }
+
+            // Create delivery
+            Delivery delivery = new Delivery
+            {
+                DriverId = driver.DriverId,
+                OrderId = order.OrdersId,
+                DeliveryDate = DateTime.Now, // or some logic
+                customersName = order.Customer.firstName,
+                customersAddress = order.Customer.Address
+            };
+
+            dbDeliveryContext.Add(delivery);
+            dbDeliveryContext.SaveChanges();
+
+            MessageBox.Show("Delivery created successfully!");
+
+
+
+
+
+           
+
+         
 
             
 
