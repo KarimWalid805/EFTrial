@@ -39,13 +39,9 @@ namespace WinFormEF
             VehicleBox = new ComboBox();
             Agelbl = new Label();
             Agetxt = new NumericUpDown();
-            DriverGridView = new DataGridView();
             categoryBindingSource = new BindingSource(components);
             Addbtn = new Button();
-            Removebtn = new Button();
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
             OrderGridView = new DataGridView();
             ordersIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -55,7 +51,6 @@ namespace WinFormEF
             customerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ordersBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DriverGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).BeginInit();
@@ -64,77 +59,71 @@ namespace WinFormEF
             // driverFNamelbl
             // 
             driverFNamelbl.AutoSize = true;
-            driverFNamelbl.Location = new Point(19, 77);
+            driverFNamelbl.Location = new Point(28, 90);
             driverFNamelbl.Name = "driverFNamelbl";
-            driverFNamelbl.Size = new Size(133, 20);
+            driverFNamelbl.Size = new Size(106, 15);
             driverFNamelbl.TabIndex = 0;
             driverFNamelbl.Text = "Driver's First Name";
             // 
             // driverLNamelbl
             // 
             driverLNamelbl.AutoSize = true;
-            driverLNamelbl.Location = new Point(19, 120);
+            driverLNamelbl.Location = new Point(28, 122);
             driverLNamelbl.Name = "driverLNamelbl";
-            driverLNamelbl.Size = new Size(132, 20);
+            driverLNamelbl.Size = new Size(105, 15);
             driverLNamelbl.TabIndex = 1;
             driverLNamelbl.Text = "Driver's Last Name";
             // 
             // FirstNametxt
             // 
-            FirstNametxt.Location = new Point(158, 77);
+            FirstNametxt.Location = new Point(149, 90);
+            FirstNametxt.Margin = new Padding(3, 2, 3, 2);
             FirstNametxt.Name = "FirstNametxt";
-            FirstNametxt.Size = new Size(125, 27);
+            FirstNametxt.Size = new Size(146, 23);
             FirstNametxt.TabIndex = 2;
             // 
             // LastNametxt
             // 
-            LastNametxt.Location = new Point(158, 120);
+            LastNametxt.Location = new Point(149, 122);
+            LastNametxt.Margin = new Padding(3, 2, 3, 2);
             LastNametxt.Name = "LastNametxt";
-            LastNametxt.Size = new Size(125, 27);
+            LastNametxt.Size = new Size(146, 23);
             LastNametxt.TabIndex = 3;
             // 
             // vehicleTypelbl
             // 
             vehicleTypelbl.AutoSize = true;
-            vehicleTypelbl.Location = new Point(61, 211);
+            vehicleTypelbl.Location = new Point(64, 190);
             vehicleTypelbl.Name = "vehicleTypelbl";
-            vehicleTypelbl.Size = new Size(91, 20);
+            vehicleTypelbl.Size = new Size(72, 15);
             vehicleTypelbl.TabIndex = 4;
             vehicleTypelbl.Text = "Vehicle Type";
             // 
             // VehicleBox
             // 
             VehicleBox.FormattingEnabled = true;
-            VehicleBox.Location = new Point(158, 208);
+            VehicleBox.Location = new Point(149, 188);
+            VehicleBox.Margin = new Padding(3, 2, 3, 2);
             VehicleBox.Name = "VehicleBox";
-            VehicleBox.Size = new Size(125, 28);
+            VehicleBox.Size = new Size(146, 23);
             VehicleBox.TabIndex = 5;
             // 
             // Agelbl
             // 
             Agelbl.AutoSize = true;
-            Agelbl.Location = new Point(115, 166);
+            Agelbl.Location = new Point(112, 156);
             Agelbl.Name = "Agelbl";
-            Agelbl.Size = new Size(36, 20);
+            Agelbl.Size = new Size(28, 15);
             Agelbl.TabIndex = 6;
             Agelbl.Text = "Age";
             // 
             // Agetxt
             // 
-            Agetxt.Location = new Point(158, 166);
+            Agetxt.Location = new Point(149, 156);
+            Agetxt.Margin = new Padding(3, 2, 3, 2);
             Agetxt.Name = "Agetxt";
-            Agetxt.Size = new Size(125, 27);
+            Agetxt.Size = new Size(145, 23);
             Agetxt.TabIndex = 7;
-            // 
-            // DriverGridView
-            // 
-            DriverGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DriverGridView.Location = new Point(289, 403);
-            DriverGridView.Name = "DriverGridView";
-            DriverGridView.RowHeadersWidth = 51;
-            DriverGridView.Size = new Size(429, 188);
-            DriverGridView.TabIndex = 8;
-            DriverGridView.Tag = "Driver";
             // 
             // categoryBindingSource
             // 
@@ -143,52 +132,23 @@ namespace WinFormEF
             // Addbtn
             // 
             Addbtn.ForeColor = Color.FromArgb(0, 192, 0);
-            Addbtn.Location = new Point(153, 257);
+            Addbtn.Location = new Point(145, 225);
+            Addbtn.Margin = new Padding(3, 2, 3, 2);
             Addbtn.Name = "Addbtn";
-            Addbtn.Size = new Size(130, 29);
+            Addbtn.Size = new Size(150, 22);
             Addbtn.TabIndex = 9;
             Addbtn.Text = "Choose Order";
             Addbtn.UseVisualStyleBackColor = true;
             Addbtn.Click += Addbtn_Click;
             // 
-            // Removebtn
-            // 
-            Removebtn.ForeColor = Color.Red;
-            Removebtn.Location = new Point(622, 368);
-            Removebtn.Name = "Removebtn";
-            Removebtn.Size = new Size(94, 29);
-            Removebtn.TabIndex = 10;
-            Removebtn.Text = "Remove";
-            Removebtn.UseVisualStyleBackColor = true;
-            Removebtn.Click += Removebtn_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(289, 76);
+            label1.Location = new Point(315, 73);
             label1.Name = "label1";
-            label1.Size = new Size(274, 20);
+            label1.Size = new Size(220, 15);
             label1.TabIndex = 13;
             label1.Text = "Choose which order you want to deliver:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(127, 594);
-            label2.Name = "label2";
-            label2.Size = new Size(380, 20);
-            label2.TabIndex = 14;
-            label2.Text = "(Make sure to save your edit by clicking the edit button.)";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(289, 369);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 31);
-            label3.TabIndex = 15;
-            label3.Text = "All Drivers";
             // 
             // OrderGridView
             // 
@@ -196,10 +156,11 @@ namespace WinFormEF
             OrderGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             OrderGridView.Columns.AddRange(new DataGridViewColumn[] { ordersIdDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, orderDateDataGridViewTextBoxColumn, productslistDataGridViewTextBoxColumn, customerIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn });
             OrderGridView.DataSource = ordersBindingSource;
-            OrderGridView.Location = new Point(289, 99);
+            OrderGridView.Location = new Point(315, 90);
+            OrderGridView.Margin = new Padding(3, 2, 3, 2);
             OrderGridView.Name = "OrderGridView";
             OrderGridView.RowHeadersWidth = 51;
-            OrderGridView.Size = new Size(429, 150);
+            OrderGridView.Size = new Size(792, 511);
             OrderGridView.TabIndex = 17;
             // 
             // ordersIdDataGridViewTextBoxColumn
@@ -256,16 +217,12 @@ namespace WinFormEF
             // 
             // DriversForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 623);
+            ClientSize = new Size(1148, 683);
             Controls.Add(OrderGridView);
-            Controls.Add(label3);
-            Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(Removebtn);
             Controls.Add(Addbtn);
-            Controls.Add(DriverGridView);
             Controls.Add(Agetxt);
             Controls.Add(Agelbl);
             Controls.Add(VehicleBox);
@@ -274,10 +231,10 @@ namespace WinFormEF
             Controls.Add(FirstNametxt);
             Controls.Add(driverLNamelbl);
             Controls.Add(driverFNamelbl);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DriversForm";
             Text = "Drivers";
             ((System.ComponentModel.ISupportInitialize)Agetxt).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DriverGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).EndInit();
@@ -295,13 +252,9 @@ namespace WinFormEF
         private ComboBox VehicleBox;
         private Label Agelbl;
         private NumericUpDown Agetxt;
-        private DataGridView DriverGridView;
         private BindingSource categoryBindingSource;
         private Button Addbtn;
-        private Button Removebtn;
         private Label label1;
-        private Label label2;
-        private Label label3;
         private DataGridView OrderGridView;
         private DataGridViewTextBoxColumn ordersIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;

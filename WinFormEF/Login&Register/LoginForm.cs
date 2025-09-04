@@ -63,8 +63,8 @@ namespace WinFormEF
                     {
                         dr.Close();
                         this.Hide();
-                        StartForm home = new StartForm();
-                        home.ShowDialog();
+                        CustomersForm Customer = new CustomersForm();
+                        Customer.ShowDialog();
                     }
                     else
                     {
@@ -91,8 +91,8 @@ namespace WinFormEF
                     {
                         dr.Close();
                         this.Hide();
-                        StartForm home = new StartForm();
-                        home.ShowDialog();
+                        DriversForm Driver = new DriversForm();
+                        Driver.ShowDialog();
                     }
                     else
                     {

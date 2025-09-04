@@ -6,6 +6,9 @@ public class DriversContext : DbContext
 {
     public DbSet<Driver> Drivers { get; set; }
 
+    public DbSet<Delivery> Delivery { get; set; }
+
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=OnlineDeliveryDB;TrustServerCertificate=True;");
@@ -19,6 +22,9 @@ public class DriversContext : DbContext
             new Driver { DriverId = 4, firstName = "Will", lastName = "Smith", age = 45, vehicleType = "Truck" },
             new Driver { DriverId = 5, firstName = "Doom", lastName = "Slayer", age = 56, vehicleType = "Car" },
             new Driver { DriverId = 6, firstName = "Space", lastName = "Marine", age = 33, vehicleType = "Train" });
+
+
+        modelBuilder.Entity<Delivery>().HasData();
 
 
 

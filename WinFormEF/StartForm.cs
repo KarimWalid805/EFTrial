@@ -48,23 +48,7 @@ namespace WinFormEF
                 TextShade.WHITE                    // Text color
             );
 
-            if (Session.UserType == "Customer")
-            {
-                CustomersForm costumerForm = new CustomersForm();
-                costumerForm.ShowDialog();
-            }
-
-            if (Session.UserType == "Driver")
-            {
-                DriversForm driversForm = new DriversForm();
-                driversForm.ShowDialog();
-            }
-
-            if (Session.UserType == "Driver")
-            {
-                DriversForm driversForm = new DriversForm();
-                driversForm.ShowDialog();
-            }
+           
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -119,11 +103,7 @@ namespace WinFormEF
 
         }
 
-        private void deliverynavbtn_Click(object sender, EventArgs e)
-        {
-            DeliveriesForm deliveryForm = new DeliveriesForm();
-            deliveryForm.ShowDialog();
-        }
+
 
         private void customernavbtn_Click(object sender, EventArgs e)
         {
@@ -131,7 +111,10 @@ namespace WinFormEF
             costumerForm.ShowDialog();
         }
 
-       
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            
+        }
     }
 
 
