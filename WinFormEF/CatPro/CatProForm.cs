@@ -12,7 +12,7 @@ namespace WinFormEF
 {
     public partial class CatProForm : MaterialForm
     {
-        private ProductsContext dbContext;
+        private ApplicationDbContext dbContext;
 
 
         public CatProForm()
@@ -36,7 +36,7 @@ namespace WinFormEF
         {
             base.OnLoad(e);
 
-            this.dbContext = new ProductsContext();
+            this.dbContext = new ApplicationDbContext();
 
             //Uncommon the line below to start fresh with a new database.
             

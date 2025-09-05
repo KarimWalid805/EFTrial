@@ -6,13 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 using WinFormEF.CatPro;
 using WinFormEF.Customers;
+using WinFormEF;
+
 
 namespace WinFormEF
 {
@@ -20,8 +18,8 @@ namespace WinFormEF
     {
 
 
-        public CustomerContext dbCustomerContext;
-        private ProductsContext dbProductContext;
+        public ApplicationDbContext dbCustomerContext;
+        private ApplicationDbContext dbProductContext;
 
         private BindingSource customersBindingSource;
         public BindingSource ordersBindingSource;
@@ -53,7 +51,7 @@ namespace WinFormEF
             base.OnLoad(e);
 
 
-            this.dbCustomerContext = new CustomerContext();
+            this.dbCustomerContext = new ApplicationDbContext();
 
 
             this.dbCustomerContext.Database.EnsureCreated();
@@ -96,7 +94,7 @@ namespace WinFormEF
             //---------------------------------------------------------------------------------------------------------------------------
 
 
-            dbProductContext = new ProductsContext();
+            dbProductContext = new ApplicationDbContext();
 
 
 

@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms;
+using WinFormEF.CatPro;
 using WinFormEF.Customers;
 using WinFormEF.Customers;
 using WinFormEF.Drivers;
@@ -24,8 +25,10 @@ namespace WinFormEF
 {
     public partial class StartForm : MaterialForm
     {
-        public DriversContext dbDriversContext;
-        public CustomerContext customerContext;
+        public ApplicationDbContext dbDriversContext;
+        public ApplicationDbContext customerContext;
+        public ApplicationDbContext deliveryContext;
+
 
         public BindingSource driversBindingSource; // Declare driversBindingSource
         private BindingSource customersBindingSource;
@@ -54,16 +57,22 @@ namespace WinFormEF
         {
             base.OnLoad(e);
 
-            this.dbDriversContext = new DriversContext();
-            this.customerContext = new CustomerContext();
+            this.dbDriversContext = new ApplicationDbContext();
+            this.customerContext = new ApplicationDbContext();
+            this.deliveryContext = new ApplicationDbContext();
+
 
             this.dbDriversContext.Database.EnsureCreated();
             this.customerContext.Database.EnsureCreated();
+            this.deliveryContext.Database.EnsureCreated();
+
 
 
 
             this.dbDriversContext.Drivers.Load();
             this.customerContext.Customers.Load();
+            this.deliveryContext.Deliveries.Load();
+
 
 
 
@@ -73,11 +82,18 @@ namespace WinFormEF
             this.customersBindingSource.DataSource = customerContext.Customers.Local.ToBindingList();
             this.CustomerDataGrid.DataSource = this.customersBindingSource;
 
+
+            this.deliveryBindingSource.DataSource = deliveryContext.Deliveries.Local.ToBindingList();
+            this.DeliveryDataGridView.DataSource = this.deliveryBindingSource;
+
             int custCount = customerContext.Customers.Count(); // EF Core LINQ Count()
             CustCount.Text = custCount.ToString();
 
             int driversCount = dbDriversContext.Drivers.Count(); // EF Core LINQ Count()
             DriverCount.Text = driversCount.ToString();
+
+            int deliveryCount = deliveryContext.Deliveries.Count(); // EF Core LINQ Count()
+            DeliveryCount.Text = deliveryCount.ToString();
 
 
         }

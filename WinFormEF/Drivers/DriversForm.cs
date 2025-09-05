@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Net;
 using System.Windows.Forms;
+using WinFormEF.CatPro;
 using WinFormEF.Customers;
 using WinFormEF.Drivers;
 
@@ -11,9 +12,9 @@ namespace WinFormEF
 {
     public partial class DriversForm : MaterialForm
     {
-        public DriversContext dbDriversContext;
-        public CustomerContext dbOrdersContext;
-        public DriversContext dbDeliveryContext;
+        public ApplicationDbContext dbDriversContext;
+        public ApplicationDbContext dbOrdersContext;
+        public ApplicationDbContext dbDeliveryContext;
 
 
         public BindingSource driversBindingSource; // Declare driversBindingSource
@@ -46,9 +47,9 @@ namespace WinFormEF
             base.OnLoad(e);
             VehicleBox.Items.AddRange(new string[] { "Train", "Car", "Truck" });
 
-            this.dbDriversContext = new DriversContext();
-            this.dbOrdersContext = new CustomerContext();
-            this.dbDeliveryContext = new DriversContext();
+            this.dbDriversContext = new ApplicationDbContext();
+            this.dbOrdersContext = new ApplicationDbContext();
+            this.dbDeliveryContext = new ApplicationDbContext();
 
 
 
@@ -72,9 +73,8 @@ namespace WinFormEF
                 vehicleType = VehicleBox.ToString()
 
             };
-           
 
-
+            
 
 
 
@@ -87,19 +87,29 @@ namespace WinFormEF
             int Age = (int)Agetxt.Value;
             string vehicleType = VehicleBox.SelectedItem?.ToString();
             Driver driver = new Driver { firstName = firstName, lastName = lastName, age = Age, vehicleType = vehicleType };
-            dbDriversContext.Drivers.Local.Add(driver);
+            dbDriversContext.Drivers.Add(driver);
             dbDriversContext.SaveChanges();
 
-            dbDriversContext.Drivers.Add(driver);
-            dbDriversContext.SaveChanges(); // Save first so DriverId is generated
+         
 
-            // Get selected orderId
-            DataGridViewRow selectedRow = OrderGridView.SelectedRows[0];
-            int orderId = (int)selectedRow.Cells["OrderId"].Value;
+            if (OrderGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order.");
+                return;
+            }
 
-            // Load order including customer
+            var selectedOrder = OrderGridView.SelectedRows[0].DataBoundItem as Orders;
+            if (selectedOrder == null)
+            {
+                MessageBox.Show("Invalid order selection.");
+                return;
+            }
+
+            int orderId = selectedOrder.OrdersId; // direct access to entity property
+
+            // 4. Load the order (with customer)
             var order = dbOrdersContext.Orders
-                .Include(o => o.Customer) // make sure Customer is loaded
+                .Include(o => o.Customer)
                 .FirstOrDefault(o => o.OrdersId == orderId);
 
             if (order == null)
@@ -112,14 +122,14 @@ namespace WinFormEF
             Delivery delivery = new Delivery
             {
                 DriverId = driver.DriverId,
-                OrderId = order.OrdersId,
+                OrdersId = order.OrdersId,
                 DeliveryDate = DateTime.Now, // or some logic
                 customersName = order.Customer.firstName,
                 customersAddress = order.Customer.Address
             };
-
-            dbDeliveryContext.Add(delivery);
+            dbDeliveryContext.Deliveries.Add(delivery);
             dbDeliveryContext.SaveChanges();
+
 
             MessageBox.Show("Delivery created successfully!");
 

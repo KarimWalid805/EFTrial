@@ -55,13 +55,23 @@
             customerBindingSource = new BindingSource(components);
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             monthCalendar1 = new MonthCalendar();
-            dataGridView1 = new DataGridView();
+            DeliveryDataGridView = new DataGridView();
+            deliveryBindingSource = new BindingSource(components);
+            label3 = new Label();
+            DeliveryCount = new TextBox();
+            deliveryIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            driverIdDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            ordersIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            deliveryDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            customersNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            customersAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DriverDataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)driverBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DeliveryDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deliveryBindingSource).BeginInit();
             SuspendLayout();
             // 
             // catpronavbtn
@@ -142,7 +152,7 @@
             // 
             // CustCount
             // 
-            CustCount.Location = new Point(346, 531);
+            CustCount.Location = new Point(346, 527);
             CustCount.Margin = new Padding(3, 2, 3, 2);
             CustCount.Name = "CustCount";
             CustCount.ReadOnly = true;
@@ -161,7 +171,7 @@
             // 
             // DriverCount
             // 
-            DriverCount.Location = new Point(332, 282);
+            DriverCount.Location = new Point(321, 282);
             DriverCount.Margin = new Padding(3, 2, 3, 2);
             DriverCount.Name = "DriverCount";
             DriverCount.ReadOnly = true;
@@ -295,25 +305,89 @@
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(671, 118);
+            monthCalendar1.Location = new Point(661, 322);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 13;
             monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             // 
-            // dataGridView1
+            // DeliveryDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(671, 322);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
-            dataGridView1.TabIndex = 14;
+            DeliveryDataGridView.AutoGenerateColumns = false;
+            DeliveryDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DeliveryDataGridView.Columns.AddRange(new DataGridViewColumn[] { deliveryIdDataGridViewTextBoxColumn, driverIdDataGridViewTextBoxColumn1, ordersIdDataGridViewTextBoxColumn, deliveryDateDataGridViewTextBoxColumn, customersNameDataGridViewTextBoxColumn, customersAddressDataGridViewTextBoxColumn });
+            DeliveryDataGridView.DataSource = deliveryBindingSource;
+            DeliveryDataGridView.Location = new Point(661, 62);
+            DeliveryDataGridView.Name = "DeliveryDataGridView";
+            DeliveryDataGridView.Size = new Size(432, 218);
+            DeliveryDataGridView.TabIndex = 14;
+            // 
+            // deliveryBindingSource
+            // 
+            deliveryBindingSource.DataSource = typeof(Drivers.Delivery);
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(715, 288);
+            label3.Name = "label3";
+            label3.Size = new Size(161, 21);
+            label3.TabIndex = 16;
+            label3.Text = "Number of Deliveries:";
+            // 
+            // DeliveryCount
+            // 
+            DeliveryCount.Location = new Point(882, 288);
+            DeliveryCount.Margin = new Padding(3, 2, 3, 2);
+            DeliveryCount.Name = "DeliveryCount";
+            DeliveryCount.ReadOnly = true;
+            DeliveryCount.Size = new Size(47, 23);
+            DeliveryCount.TabIndex = 17;
+            // 
+            // deliveryIdDataGridViewTextBoxColumn
+            // 
+            deliveryIdDataGridViewTextBoxColumn.DataPropertyName = "DeliveryId";
+            deliveryIdDataGridViewTextBoxColumn.HeaderText = "DeliveryId";
+            deliveryIdDataGridViewTextBoxColumn.Name = "deliveryIdDataGridViewTextBoxColumn";
+            // 
+            // driverIdDataGridViewTextBoxColumn1
+            // 
+            driverIdDataGridViewTextBoxColumn1.DataPropertyName = "DriverId";
+            driverIdDataGridViewTextBoxColumn1.HeaderText = "DriverId";
+            driverIdDataGridViewTextBoxColumn1.Name = "driverIdDataGridViewTextBoxColumn1";
+            // 
+            // ordersIdDataGridViewTextBoxColumn
+            // 
+            ordersIdDataGridViewTextBoxColumn.DataPropertyName = "OrdersId";
+            ordersIdDataGridViewTextBoxColumn.HeaderText = "OrdersId";
+            ordersIdDataGridViewTextBoxColumn.Name = "ordersIdDataGridViewTextBoxColumn";
+            // 
+            // deliveryDateDataGridViewTextBoxColumn
+            // 
+            deliveryDateDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDate";
+            deliveryDateDataGridViewTextBoxColumn.HeaderText = "DeliveryDate";
+            deliveryDateDataGridViewTextBoxColumn.Name = "deliveryDateDataGridViewTextBoxColumn";
+            // 
+            // customersNameDataGridViewTextBoxColumn
+            // 
+            customersNameDataGridViewTextBoxColumn.DataPropertyName = "customersName";
+            customersNameDataGridViewTextBoxColumn.HeaderText = "customersName";
+            customersNameDataGridViewTextBoxColumn.Name = "customersNameDataGridViewTextBoxColumn";
+            // 
+            // customersAddressDataGridViewTextBoxColumn
+            // 
+            customersAddressDataGridViewTextBoxColumn.DataPropertyName = "customersAddress";
+            customersAddressDataGridViewTextBoxColumn.HeaderText = "customersAddress";
+            customersAddressDataGridViewTextBoxColumn.Name = "customersAddressDataGridViewTextBoxColumn";
             // 
             // StartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1115, 564);
-            Controls.Add(dataGridView1);
+            Controls.Add(DeliveryCount);
+            Controls.Add(label3);
+            Controls.Add(DeliveryDataGridView);
             Controls.Add(monthCalendar1);
             Controls.Add(label1);
             Controls.Add(CustCount);
@@ -331,7 +405,8 @@
             ((System.ComponentModel.ISupportInitialize)driverBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DeliveryDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deliveryBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -365,6 +440,16 @@
         private TextBox DriverCount;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private MonthCalendar monthCalendar1;
-        private DataGridView dataGridView1;
+        private DataGridView DeliveryDataGridView;
+        private BindingSource deliveryBindingSource;
+        private TextBox DeliveryCount;
+        private Label label3;
+        private TextBox textBox1;
+        private DataGridViewTextBoxColumn deliveryIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn driverIdDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn ordersIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn customersNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn customersAddressDataGridViewTextBoxColumn;
     }
 }

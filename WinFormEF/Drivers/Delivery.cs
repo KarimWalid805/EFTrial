@@ -16,7 +16,7 @@ namespace WinFormEF.Drivers
 
 
         public int DriverId { get; set; }
-        public int OrderId { get; set; }
+        public int OrdersId { get; set; }
 
         public Driver Driver { get; set; }
         public Orders Order { get; set; }
