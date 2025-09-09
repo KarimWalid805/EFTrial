@@ -308,7 +308,7 @@
             monthCalendar1.Location = new Point(661, 322);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 13;
-            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+       
             // 
             // DeliveryDataGridView
             // 

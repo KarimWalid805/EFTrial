@@ -50,10 +50,13 @@ namespace WinFormEF
             customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ordersBindingSource = new BindingSource(components);
+            pictureBox1 = new PictureBox();
+            usernametxt = new TextBox();
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // driverFNamelbl
@@ -215,11 +218,35 @@ namespace WinFormEF
             // 
             ordersBindingSource.DataSource = typeof(Customers.Orders);
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DarkSlateGray;
+            pictureBox1.Image = Properties.Resources.user;
+            pictureBox1.Location = new Point(812, 26);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(31, 32);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
+            // 
+            // usernametxt
+            // 
+            usernametxt.BackColor = Color.DarkSlateGray;
+            usernametxt.BorderStyle = BorderStyle.None;
+            usernametxt.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            usernametxt.ForeColor = SystemColors.MenuBar;
+            usernametxt.Location = new Point(849, 29);
+            usernametxt.Name = "usernametxt";
+            usernametxt.Size = new Size(181, 29);
+            usernametxt.TabIndex = 26;
+            // 
             // DriversForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1148, 683);
+            Controls.Add(usernametxt);
+            Controls.Add(pictureBox1);
             Controls.Add(OrderGridView);
             Controls.Add(label1);
             Controls.Add(Addbtn);
@@ -238,6 +265,7 @@ namespace WinFormEF
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -263,5 +291,7 @@ namespace WinFormEF
         private DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private BindingSource ordersBindingSource;
+        private PictureBox pictureBox1;
+        private TextBox usernametxt;
     }
 }

@@ -61,6 +61,11 @@ namespace WinFormEF
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
+                        Session.UserName = dr["username"].ToString();
+                        Session.UserFirstName = dr["firstname"].ToString();
+                        Session.UserLastName = dr["lastname"].ToString();
+                        Session.Address = dr["address"].ToString();
+
                         dr.Close();
                         this.Hide();
                         CustomersForm Customer = new CustomersForm();
@@ -89,6 +94,11 @@ namespace WinFormEF
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
+
+                        Session.UserName = dr["username"].ToString();
+                        Session.UserFirstName = dr["firstname"].ToString();
+                        Session.UserLastName = dr["lastname"].ToString();
+                        Session.Address = dr["address"].ToString();
                         dr.Close();
                         this.Hide();
                         DriversForm Driver = new DriversForm();

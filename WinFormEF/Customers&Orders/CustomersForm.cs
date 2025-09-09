@@ -23,6 +23,7 @@ namespace WinFormEF
 
         private BindingSource customersBindingSource;
         public BindingSource ordersBindingSource;
+
         public CustomersForm()
         {
             InitializeComponent();
@@ -47,7 +48,14 @@ namespace WinFormEF
 
         protected override void OnLoad(EventArgs e)
         {
-   
+            FirstNametxt.Text = Session.UserFirstName;
+            LastNametxt.Text = Session.UserLastName;
+            Addresstxt.Text = Session.Address;
+            firstnamewelcome.Text = Session.UserFirstName + "!";
+            usernametxt.Text = Session.UserName;
+
+
+
             base.OnLoad(e);
 
 
@@ -67,14 +75,11 @@ namespace WinFormEF
                 firstName = FirstNametxt.Text,
                 lastName = LastNametxt.Text,
                 Address = Address.Text,
-                age = (int)agenum.Value
             };
 
 
 
-            //loads database table categories into the categories DataGridView
-            this.customersBindingSource.DataSource = dbCustomerContext.Customers.Local.ToBindingList();
-            this.customersDataGridView.DataSource = this.customersBindingSource;
+          
 
 
 
@@ -114,27 +119,15 @@ namespace WinFormEF
 
             //---------------------------------------------------------------------------------------------------------------
 
-            if (Session.UserType == "Admin")
-            {
-
-                customersDataGridView.Visible = true;
-            }
-            else
-            {
-                CustomersTablelbl.Visible = false;
-                customersDataGridView.Visible = false;
-
-            }
+           
         }
 
         private void MakeOrder_Click(object sender, EventArgs e)
         {
-
             // Customers fields
             string firstName = FirstNametxt.Text.Trim();
             string lastName = LastNametxt.Text.Trim();
             string Address = Addresstxt.Text.Trim();
-            int Age = (int)agenum.Value;
 
             //Order fields
             string OrderAddress = Addresstxt.Text.Trim();
@@ -142,8 +135,8 @@ namespace WinFormEF
             var selectedProducts = ProductListBox.SelectedItems.Cast<string>().ToList();
             string productList = string.Join(",", selectedProducts);
 
-
-            Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address, age = Age };
+   
+            Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address };
             Orders order = new Orders { Address = OrderAddress, orderDate = DateTime.Now, Customer = customer, products_list = productList };
 
             dbCustomerContext.Customers.Add(customer);

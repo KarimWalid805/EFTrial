@@ -66,9 +66,15 @@ namespace WinFormEF
                         {
 
                             dr.Close();
-                            cmd = new SqlCommand("insert into customeraccount values(@username,@password)", con);
+                            cmd = new SqlCommand("insert into customeraccount values(@username,@password,@firstname,@lastname,@address)", con);
                             cmd.Parameters.AddWithValue("username", txtusername.Text);
                             cmd.Parameters.AddWithValue("password", txtpassword.Text);
+                            cmd.Parameters.AddWithValue("firstname", FirstNametxt.Text);
+                            cmd.Parameters.AddWithValue("lastname", LastNametxt.Text);
+                            cmd.Parameters.AddWithValue("address", Addresstxt.Text);
+
+
+
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Your customer Account is created . Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -101,9 +107,12 @@ namespace WinFormEF
                         {
 
                             dr.Close();
-                            cmd = new SqlCommand("insert into driveraccount values(@username,@password)", con);
+                            cmd = new SqlCommand("insert into driveraccount values(@username,@password,@firstname,@lastname,@address)", con);
                             cmd.Parameters.AddWithValue("username", txtusername.Text);
                             cmd.Parameters.AddWithValue("password", txtpassword.Text);
+                            cmd.Parameters.AddWithValue("firstname", FirstNametxt.Text);
+                            cmd.Parameters.AddWithValue("lastname", LastNametxt.Text);
+                            cmd.Parameters.AddWithValue("address", Addresstxt.Text);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Your drivers Account is created . Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }

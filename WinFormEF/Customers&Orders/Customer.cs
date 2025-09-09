@@ -18,7 +18,6 @@ namespace WinFormEF.Customers
         public string Address { get; set; }
 
 
-        public int age { get; set; }
 
         public virtual ObservableCollectionListSource<Orders> Orders { get; } = new();
     }

@@ -47,22 +47,15 @@
             productslistDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             bindingSource1 = new BindingSource(components);
             cancelorderbtn = new Button();
-            CustomersTablelbl = new Label();
-            customersDataGridView = new DataGridView();
-            customerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerBindingSource = new BindingSource(components);
-            Agelbl = new Label();
-            agenum = new NumericUpDown();
             AddCust = new Button();
+            firstnamewelcome = new TextBox();
+            pictureBox1 = new PictureBox();
+            usernametxt = new TextBox();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)customersDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)agenum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // FNamelbl
@@ -86,7 +79,7 @@
             // Orderlbl
             // 
             Orderlbl.AutoSize = true;
-            Orderlbl.Location = new Point(28, 257);
+            Orderlbl.Location = new Point(17, 229);
             Orderlbl.Name = "Orderlbl";
             Orderlbl.Size = new Size(108, 15);
             Orderlbl.TabIndex = 4;
@@ -128,7 +121,7 @@
             // ProductListBox
             // 
             ProductListBox.FormattingEnabled = true;
-            ProductListBox.Location = new Point(35, 274);
+            ProductListBox.Location = new Point(24, 246);
             ProductListBox.Margin = new Padding(3, 2, 3, 2);
             ProductListBox.Name = "ProductListBox";
             ProductListBox.Size = new Size(126, 94);
@@ -137,12 +130,13 @@
             // welcomelbl
             // 
             welcomelbl.AutoSize = true;
+            welcomelbl.BackColor = Color.Transparent;
             welcomelbl.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             welcomelbl.Location = new Point(24, 72);
             welcomelbl.Name = "welcomelbl";
-            welcomelbl.Size = new Size(243, 30);
+            welcomelbl.Size = new Size(242, 30);
             welcomelbl.TabIndex = 11;
-            welcomelbl.Text = "Welcome To the Shop!";
+            welcomelbl.Text = "Welcome To the Shop,";
             // 
             // label2
             // 
@@ -222,89 +216,9 @@
             cancelorderbtn.Text = "Cancel Order";
             cancelorderbtn.UseVisualStyleBackColor = true;
             // 
-            // CustomersTablelbl
-            // 
-            CustomersTablelbl.AutoSize = true;
-            CustomersTablelbl.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            CustomersTablelbl.Location = new Point(24, 386);
-            CustomersTablelbl.Name = "CustomersTablelbl";
-            CustomersTablelbl.Size = new Size(157, 25);
-            CustomersTablelbl.TabIndex = 18;
-            CustomersTablelbl.Text = "Customers Table";
-            // 
-            // customersDataGridView
-            // 
-            customersDataGridView.AutoGenerateColumns = false;
-            customersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customersDataGridView.Columns.AddRange(new DataGridViewColumn[] { customerIdDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn });
-            customersDataGridView.DataSource = customerBindingSource;
-            customersDataGridView.Location = new Point(24, 412);
-            customersDataGridView.Margin = new Padding(3, 2, 3, 2);
-            customersDataGridView.Name = "customersDataGridView";
-            customersDataGridView.RowHeadersWidth = 51;
-            customersDataGridView.Size = new Size(372, 151);
-            customersDataGridView.TabIndex = 19;
-            // 
-            // customerIdDataGridViewTextBoxColumn
-            // 
-            customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
-            customerIdDataGridViewTextBoxColumn.HeaderText = "CustomerId";
-            customerIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
-            customerIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "firstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "firstName";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "lastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "lastName";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            ageDataGridViewTextBoxColumn.DataPropertyName = "age";
-            ageDataGridViewTextBoxColumn.HeaderText = "age";
-            ageDataGridViewTextBoxColumn.MinimumWidth = 6;
-            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            ageDataGridViewTextBoxColumn.Width = 125;
-            // 
             // customerBindingSource
             // 
             customerBindingSource.DataSource = typeof(Customers.Customer);
-            // 
-            // Agelbl
-            // 
-            Agelbl.AutoSize = true;
-            Agelbl.Location = new Point(128, 222);
-            Agelbl.Name = "Agelbl";
-            Agelbl.Size = new Size(28, 15);
-            Agelbl.TabIndex = 20;
-            Agelbl.Text = "Age";
-            // 
-            // agenum
-            // 
-            agenum.Location = new Point(165, 221);
-            agenum.Margin = new Padding(3, 2, 3, 2);
-            agenum.Name = "agenum";
-            agenum.Size = new Size(125, 23);
-            agenum.TabIndex = 21;
             // 
             // AddCust
             // 
@@ -317,16 +231,46 @@
             AddCust.UseVisualStyleBackColor = true;
             AddCust.Click += MakeOrder_Click;
             // 
+            // firstnamewelcome
+            // 
+            firstnamewelcome.BorderStyle = BorderStyle.None;
+            firstnamewelcome.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            firstnamewelcome.Location = new Point(261, 72);
+            firstnamewelcome.Name = "firstnamewelcome";
+            firstnamewelcome.Size = new Size(100, 29);
+            firstnamewelcome.TabIndex = 23;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DarkSlateGray;
+            pictureBox1.Image = Properties.Resources.user;
+            pictureBox1.Location = new Point(600, 29);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(31, 32);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
+            // usernametxt
+            // 
+            usernametxt.BackColor = Color.DarkSlateGray;
+            usernametxt.BorderStyle = BorderStyle.None;
+            usernametxt.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            usernametxt.ForeColor = SystemColors.MenuBar;
+            usernametxt.Location = new Point(637, 29);
+            usernametxt.Name = "usernametxt";
+            usernametxt.Size = new Size(181, 29);
+            usernametxt.TabIndex = 25;
+            // 
             // CustomersForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(830, 572);
+            ClientSize = new Size(830, 417);
+            Controls.Add(usernametxt);
+            Controls.Add(pictureBox1);
+            Controls.Add(firstnamewelcome);
             Controls.Add(AddCust);
-            Controls.Add(agenum);
-            Controls.Add(Agelbl);
-            Controls.Add(customersDataGridView);
-            Controls.Add(CustomersTablelbl);
             Controls.Add(cancelorderbtn);
             Controls.Add(OrderGridView);
             Controls.Add(label3);
@@ -343,12 +287,10 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "CustomersForm";
             Text = "CustomersForm";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)OrderGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)customersDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)agenum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -367,10 +309,6 @@
         private Label label3;
         private DataGridView OrderGridView;
         private Button cancelorderbtn;
-        private Label CustomersTablelbl;
-        private DataGridView customersDataGridView;
-        private Label Agelbl;
-        private NumericUpDown agenum;
         private Button AddCust;
         private DataGridViewTextBoxColumn ordersIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
@@ -378,11 +316,10 @@
         private DataGridViewTextBoxColumn customeridDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn productslistDataGridViewTextBoxColumn;
         private BindingSource bindingSource1;
-        private DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private BindingSource customerBindingSource;
+        private TextBox firstnamewelcome;
+        private PictureBox pictureBox1;
+        private TextBox usernametxt;
     }
 }

@@ -44,6 +44,12 @@ namespace WinFormEF
 
         protected override void OnLoad(EventArgs e)
         {
+
+            FirstNametxt.Text = Session.UserFirstName;
+            LastNametxt.Text = Session.UserLastName;
+            usernametxt.Text = Session.UserName;
+
+
             base.OnLoad(e);
             VehicleBox.Items.AddRange(new string[] { "Train", "Car", "Truck" });
 

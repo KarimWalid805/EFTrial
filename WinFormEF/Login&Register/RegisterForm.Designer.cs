@@ -39,13 +39,19 @@
             GroupBox = new GroupBox();
             customerRadio = new RadioButton();
             driverRadio = new RadioButton();
+            label1 = new Label();
+            label2 = new Label();
+            FirstNametxt = new TextBox();
+            LastNametxt = new TextBox();
+            Addresstxt = new TextBox();
+            Addresslbl = new Label();
             GroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // usernamelbl
             // 
             usernamelbl.AutoSize = true;
-            usernamelbl.Location = new Point(27, 56);
+            usernamelbl.Location = new Point(29, 174);
             usernamelbl.Name = "usernamelbl";
             usernamelbl.Size = new Size(95, 15);
             usernamelbl.TabIndex = 0;
@@ -54,7 +60,7 @@
             // passwordlbl
             // 
             passwordlbl.AutoSize = true;
-            passwordlbl.Location = new Point(27, 81);
+            passwordlbl.Location = new Point(29, 199);
             passwordlbl.Name = "passwordlbl";
             passwordlbl.Size = new Size(87, 15);
             passwordlbl.TabIndex = 1;
@@ -63,7 +69,7 @@
             // conpasslbl
             // 
             conpasslbl.AutoSize = true;
-            conpasslbl.Location = new Point(27, 106);
+            conpasslbl.Location = new Point(29, 224);
             conpasslbl.Name = "conpasslbl";
             conpasslbl.Size = new Size(104, 15);
             conpasslbl.TabIndex = 2;
@@ -71,36 +77,37 @@
             // 
             // txtusername
             // 
-            txtusername.Location = new Point(145, 56);
+            txtusername.Location = new Point(147, 174);
             txtusername.Margin = new Padding(3, 2, 3, 2);
             txtusername.Name = "txtusername";
-            txtusername.Size = new Size(110, 23);
+            txtusername.Size = new Size(100, 23);
             txtusername.TabIndex = 3;
+            txtusername.TabStop = false;
             // 
             // txtconfirmpassword
             // 
-            txtconfirmpassword.Location = new Point(144, 106);
+            txtconfirmpassword.Location = new Point(146, 224);
             txtconfirmpassword.Margin = new Padding(3, 2, 3, 2);
             txtconfirmpassword.Name = "txtconfirmpassword";
             txtconfirmpassword.PasswordChar = '*';
-            txtconfirmpassword.Size = new Size(110, 23);
+            txtconfirmpassword.Size = new Size(101, 23);
             txtconfirmpassword.TabIndex = 4;
             // 
             // txtpassword
             // 
-            txtpassword.Location = new Point(145, 81);
+            txtpassword.Location = new Point(147, 199);
             txtpassword.Margin = new Padding(3, 2, 3, 2);
             txtpassword.Name = "txtpassword";
             txtpassword.PasswordChar = '*';
-            txtpassword.Size = new Size(110, 23);
+            txtpassword.Size = new Size(100, 23);
             txtpassword.TabIndex = 5;
             // 
             // registerbtn
             // 
-            registerbtn.Location = new Point(72, 142);
+            registerbtn.Location = new Point(29, 257);
             registerbtn.Margin = new Padding(3, 2, 3, 2);
             registerbtn.Name = "registerbtn";
-            registerbtn.Size = new Size(109, 22);
+            registerbtn.Size = new Size(109, 38);
             registerbtn.TabIndex = 6;
             registerbtn.Text = "Register";
             registerbtn.UseVisualStyleBackColor = true;
@@ -108,10 +115,10 @@
             // 
             // loginbtn
             // 
-            loginbtn.Location = new Point(55, 168);
+            loginbtn.Location = new Point(144, 257);
             loginbtn.Margin = new Padding(3, 2, 3, 2);
             loginbtn.Name = "loginbtn";
-            loginbtn.Size = new Size(145, 22);
+            loginbtn.Size = new Size(145, 38);
             loginbtn.TabIndex = 7;
             loginbtn.Text = "Have Account? Login Now";
             loginbtn.UseVisualStyleBackColor = true;
@@ -121,7 +128,7 @@
             // 
             GroupBox.Controls.Add(customerRadio);
             GroupBox.Controls.Add(driverRadio);
-            GroupBox.Location = new Point(275, 74);
+            GroupBox.Location = new Point(274, 141);
             GroupBox.Margin = new Padding(3, 2, 3, 2);
             GroupBox.Name = "GroupBox";
             GroupBox.Padding = new Padding(3, 2, 3, 2);
@@ -154,11 +161,65 @@
             driverRadio.Text = "Driver";
             driverRadio.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(29, 109);
+            label1.Name = "label1";
+            label1.Size = new Size(64, 15);
+            label1.TabIndex = 9;
+            label1.Text = "First Name";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(205, 109);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Last Name";
+            // 
+            // FirstNametxt
+            // 
+            FirstNametxt.Location = new Point(99, 105);
+            FirstNametxt.Name = "FirstNametxt";
+            FirstNametxt.Size = new Size(100, 23);
+            FirstNametxt.TabIndex = 0;
+            // 
+            // LastNametxt
+            // 
+            LastNametxt.Location = new Point(274, 106);
+            LastNametxt.Name = "LastNametxt";
+            LastNametxt.Size = new Size(100, 23);
+            LastNametxt.TabIndex = 12;
+            // 
+            // Addresstxt
+            // 
+            Addresstxt.Location = new Point(99, 138);
+            Addresstxt.Name = "Addresstxt";
+            Addresstxt.Size = new Size(100, 23);
+            Addresstxt.TabIndex = 14;
+            // 
+            // Addresslbl
+            // 
+            Addresslbl.AutoSize = true;
+            Addresslbl.Location = new Point(29, 141);
+            Addresslbl.Name = "Addresslbl";
+            Addresslbl.Size = new Size(49, 15);
+            Addresslbl.TabIndex = 13;
+            Addresslbl.Text = "Address";
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(482, 229);
+            ClientSize = new Size(473, 313);
+            Controls.Add(Addresstxt);
+            Controls.Add(Addresslbl);
+            Controls.Add(LastNametxt);
+            Controls.Add(FirstNametxt);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(GroupBox);
             Controls.Add(loginbtn);
             Controls.Add(registerbtn);
@@ -191,5 +252,11 @@
         private GroupBox GroupBox;
         private RadioButton customerRadio;
         private RadioButton driverRadio;
+        private Label label1;
+        private Label label2;
+        private TextBox FirstNametxt;
+        private TextBox LastNametxt;
+        private TextBox Addresstxt;
+        private Label Addresslbl;
     }
 }
