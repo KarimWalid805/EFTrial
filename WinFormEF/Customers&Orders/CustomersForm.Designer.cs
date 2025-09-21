@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             FNamelbl = new Label();
             LNamelbl = new Label();
-            Orderlbl = new Label();
             Address = new Label();
             FirstNametxt = new TextBox();
             LastNametxt = new TextBox();
@@ -52,10 +51,13 @@
             firstnamewelcome = new TextBox();
             pictureBox1 = new PictureBox();
             usernametxt = new TextBox();
+            SearchBox = new TextBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // FNamelbl
@@ -76,19 +78,10 @@
             LNamelbl.TabIndex = 2;
             LNamelbl.Text = "Customer's Last Name";
             // 
-            // Orderlbl
-            // 
-            Orderlbl.AutoSize = true;
-            Orderlbl.Location = new Point(17, 229);
-            Orderlbl.Name = "Orderlbl";
-            Orderlbl.Size = new Size(108, 15);
-            Orderlbl.TabIndex = 4;
-            Orderlbl.Text = "Submit Your Order:";
-            // 
             // Address
             // 
             Address.AutoSize = true;
-            Address.Location = new Point(38, 193);
+            Address.Location = new Point(23, 191);
             Address.Name = "Address";
             Address.Size = new Size(112, 15);
             Address.TabIndex = 3;
@@ -121,10 +114,10 @@
             // ProductListBox
             // 
             ProductListBox.FormattingEnabled = true;
-            ProductListBox.Location = new Point(24, 246);
+            ProductListBox.Location = new Point(24, 277);
             ProductListBox.Margin = new Padding(3, 2, 3, 2);
             ProductListBox.Name = "ProductListBox";
-            ProductListBox.Size = new Size(126, 94);
+            ProductListBox.Size = new Size(228, 310);
             ProductListBox.TabIndex = 9;
             // 
             // welcomelbl
@@ -151,11 +144,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(316, 144);
+            label3.Location = new Point(666, 124);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(80, 15);
             label3.TabIndex = 14;
-            label3.Text = "Your Order:";
+            label3.Text = "Your Order(s):";
             // 
             // OrderGridView
             // 
@@ -163,11 +156,11 @@
             OrderGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             OrderGridView.Columns.AddRange(new DataGridViewColumn[] { ordersIdDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn1, orderDateDataGridViewTextBoxColumn, productslistDataGridViewTextBoxColumn });
             OrderGridView.DataSource = bindingSource1;
-            OrderGridView.Location = new Point(316, 166);
+            OrderGridView.Location = new Point(416, 141);
             OrderGridView.Margin = new Padding(3, 2, 3, 2);
             OrderGridView.Name = "OrderGridView";
             OrderGridView.RowHeadersWidth = 51;
-            OrderGridView.Size = new Size(483, 217);
+            OrderGridView.Size = new Size(554, 445);
             OrderGridView.TabIndex = 15;
             // 
             // ordersIdDataGridViewTextBoxColumn
@@ -208,13 +201,15 @@
             // 
             // cancelorderbtn
             // 
-            cancelorderbtn.Location = new Point(173, 300);
+            cancelorderbtn.ForeColor = Color.Red;
+            cancelorderbtn.Location = new Point(296, 167);
             cancelorderbtn.Margin = new Padding(3, 2, 3, 2);
             cancelorderbtn.Name = "cancelorderbtn";
             cancelorderbtn.Size = new Size(117, 22);
             cancelorderbtn.TabIndex = 17;
             cancelorderbtn.Text = "Cancel Order";
             cancelorderbtn.UseVisualStyleBackColor = true;
+            cancelorderbtn.Click += cancelorderbtn_Click;
             // 
             // customerBindingSource
             // 
@@ -222,7 +217,8 @@
             // 
             // AddCust
             // 
-            AddCust.Location = new Point(173, 274);
+            AddCust.ForeColor = Color.FromArgb(0, 192, 0);
+            AddCust.Location = new Point(296, 141);
             AddCust.Margin = new Padding(3, 2, 3, 2);
             AddCust.Name = "AddCust";
             AddCust.Size = new Size(116, 22);
@@ -244,7 +240,7 @@
             // 
             pictureBox1.BackColor = Color.DarkSlateGray;
             pictureBox1.Image = Properties.Resources.user;
-            pictureBox1.Location = new Point(600, 29);
+            pictureBox1.Location = new Point(666, 29);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(31, 32);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -257,16 +253,35 @@
             usernametxt.BorderStyle = BorderStyle.None;
             usernametxt.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
             usernametxt.ForeColor = SystemColors.MenuBar;
-            usernametxt.Location = new Point(637, 29);
+            usernametxt.Location = new Point(703, 29);
             usernametxt.Name = "usernametxt";
-            usernametxt.Size = new Size(181, 29);
+            usernametxt.Size = new Size(267, 29);
             usernametxt.TabIndex = 25;
+            // 
+            // SearchBox
+            // 
+            SearchBox.Location = new Point(61, 234);
+            SearchBox.Name = "SearchBox";
+            SearchBox.Size = new Size(152, 23);
+            SearchBox.TabIndex = 26;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.vector_find_icon_167101148;
+            pictureBox2.Location = new Point(24, 234);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(21, 23);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
             // 
             // CustomersForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(830, 417);
+            ClientSize = new Size(988, 606);
+            Controls.Add(pictureBox2);
+            Controls.Add(SearchBox);
             Controls.Add(usernametxt);
             Controls.Add(pictureBox1);
             Controls.Add(firstnamewelcome);
@@ -280,7 +295,6 @@
             Controls.Add(Addresstxt);
             Controls.Add(LastNametxt);
             Controls.Add(FirstNametxt);
-            Controls.Add(Orderlbl);
             Controls.Add(Address);
             Controls.Add(LNamelbl);
             Controls.Add(FNamelbl);
@@ -291,6 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,7 +313,6 @@
         #endregion
         private Label FNamelbl;
         private Label LNamelbl;
-        private Label Orderlbl;
         private Label Address;
         private TextBox FirstNametxt;
         private TextBox LastNametxt;
@@ -321,5 +335,7 @@
         private TextBox firstnamewelcome;
         private PictureBox pictureBox1;
         private TextBox usernametxt;
+        private TextBox SearchBox;
+        private PictureBox pictureBox2;
     }
 }

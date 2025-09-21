@@ -52,11 +52,13 @@ namespace WinFormEF
             ordersBindingSource = new BindingSource(components);
             pictureBox1 = new PictureBox();
             usernametxt = new TextBox();
+            deliveryBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)Agetxt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deliveryBindingSource).BeginInit();
             SuspendLayout();
             // 
             // driverFNamelbl
@@ -163,7 +165,7 @@ namespace WinFormEF
             OrderGridView.Margin = new Padding(3, 2, 3, 2);
             OrderGridView.Name = "OrderGridView";
             OrderGridView.RowHeadersWidth = 51;
-            OrderGridView.Size = new Size(792, 511);
+            OrderGridView.Size = new Size(429, 329);
             OrderGridView.TabIndex = 17;
             // 
             // ordersIdDataGridViewTextBoxColumn
@@ -240,11 +242,15 @@ namespace WinFormEF
             usernametxt.Size = new Size(181, 29);
             usernametxt.TabIndex = 26;
             // 
+            // deliveryBindingSource
+            // 
+            deliveryBindingSource.DataSource = typeof(Drivers.Delivery);
+            // 
             // DriversForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1148, 683);
+            ClientSize = new Size(1279, 637);
             Controls.Add(usernametxt);
             Controls.Add(pictureBox1);
             Controls.Add(OrderGridView);
@@ -266,6 +272,7 @@ namespace WinFormEF
             ((System.ComponentModel.ISupportInitialize)OrderGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ordersBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deliveryBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -293,5 +300,6 @@ namespace WinFormEF
         private BindingSource ordersBindingSource;
         private PictureBox pictureBox1;
         private TextBox usernametxt;
+        private BindingSource deliveryBindingSource;
     }
 }

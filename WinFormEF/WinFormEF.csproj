@@ -8,6 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>6bdff411-777a-4e26-bf18-ac6297717914</UserSecretsId>
     <PlatformTarget>x64</PlatformTarget>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

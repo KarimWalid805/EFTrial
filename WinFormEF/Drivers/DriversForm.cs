@@ -16,7 +16,7 @@ namespace WinFormEF
         public ApplicationDbContext dbOrdersContext;
         public ApplicationDbContext dbDeliveryContext;
 
-
+        public BindingSource driverOrdersBindingSource;
         public BindingSource driversBindingSource; // Declare driversBindingSource
 
         public DriversForm()
@@ -36,6 +36,7 @@ namespace WinFormEF
 
             this.driversBindingSource = new BindingSource(); // Initialize driversBindingSource
             this.ordersBindingSource = new BindingSource();
+            this.driverOrdersBindingSource = new BindingSource();
 
         }
 
@@ -69,6 +70,8 @@ namespace WinFormEF
             this.ordersBindingSource.DataSource = dbOrdersContext.Orders.Local.ToBindingList();
             this.OrderGridView.DataSource = this.ordersBindingSource;
 
+
+
             this.dbDriversContext.Drivers.Load();
 
             Driver driver = new Driver
@@ -88,6 +91,8 @@ namespace WinFormEF
 
         private void Addbtn_Click(object sender, EventArgs e)
         {
+
+            
             string firstName = FirstNametxt.Text.Trim();
             string lastName = LastNametxt.Text.Trim();
             int Age = (int)Agetxt.Value;
@@ -139,28 +144,20 @@ namespace WinFormEF
 
             MessageBox.Show("Delivery created successfully!");
 
-
-
-
-
-           
-
-         
-
             
 
+
+
+
+
+
+
+
+
         }
 
 
 
-        private void Savebtn_Click(object sender, EventArgs e)
-        {
-            dbDriversContext.SaveChanges();
-        }
-
-        private void DriverGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }

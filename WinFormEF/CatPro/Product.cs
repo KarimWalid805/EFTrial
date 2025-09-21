@@ -9,6 +9,7 @@ public class Product
     public string? Name { get; set; }
 
     public int CategoryId { get; set; }
+
     public virtual Category Category { get; set; } = null!;
 
     
