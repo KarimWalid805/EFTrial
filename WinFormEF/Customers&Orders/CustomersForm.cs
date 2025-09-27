@@ -23,10 +23,11 @@ namespace WinFormEF
 
         private BindingSource customersBindingSource;
         public BindingSource ordersBindingSource;
+
         public CustomersForm()
         {
-            InitializeComponent();
 
+            InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT; // or DARK
@@ -44,10 +45,18 @@ namespace WinFormEF
 
 
         }
+        private List<string> allProducts;
 
         protected override void OnLoad(EventArgs e)
         {
-   
+            FirstNametxt.Text = Session.UserFirstName;
+            LastNametxt.Text = Session.UserLastName;
+            Addresstxt.Text = Session.Address;
+            firstnamewelcome.Text = Session.UserFirstName + "!";
+            usernametxt.Text = Session.UserName;
+
+
+
             base.OnLoad(e);
 
 
@@ -67,14 +76,11 @@ namespace WinFormEF
                 firstName = FirstNametxt.Text,
                 lastName = LastNametxt.Text,
                 Address = Address.Text,
-                age = (int)agenum.Value
             };
 
 
 
-            //loads database table categories into the categories DataGridView
-            this.customersBindingSource.DataSource = dbCustomerContext.Customers.Local.ToBindingList();
-            this.customersDataGridView.DataSource = this.customersBindingSource;
+
 
 
 
@@ -109,54 +115,99 @@ namespace WinFormEF
             ProductListBox.Items.Clear();
             ProductListBox.Items.AddRange(productNames.ToArray());
 
+            allProducts = dbProductContext.Products
+                              .Select(p => p.Name)
+                              .ToList();
 
 
+            LoadProducts(allProducts);
 
-            //---------------------------------------------------------------------------------------------------------------
-
-            if (Session.UserType == "Admin")
-            {
-
-                customersDataGridView.Visible = true;
-            }
-            else
-            {
-                CustomersTablelbl.Visible = false;
-                customersDataGridView.Visible = false;
-
-            }
+            SearchBox.TextChanged += SearchBox_TextChanged;
         }
+
+        private void LoadProducts(List<string> products)
+        {
+            ProductListBox.Items.Clear();
+            ProductListBox.Items.AddRange(products.ToArray());
+        }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            string query = SearchBox.Text.Trim().ToLower();
+
+            var filtered = allProducts
+                .Where(p => p.ToLower().Contains(query))
+                .ToList();
+
+            LoadProducts(filtered);
+        }
+
+
+        //---------------------------------------------------------------------------------------------------------------
+
+
+
 
         private void MakeOrder_Click(object sender, EventArgs e)
         {
-
             // Customers fields
             string firstName = FirstNametxt.Text.Trim();
             string lastName = LastNametxt.Text.Trim();
             string Address = Addresstxt.Text.Trim();
-            int Age = (int)agenum.Value;
 
             //Order fields
             string OrderAddress = Addresstxt.Text.Trim();
             string orderDate = DateTime.Now.ToString();
-            var selectedProducts = ProductListBox.SelectedItems.Cast<string>().ToList();
+            var selectedProducts = ProductListBox.CheckedItems.Cast<string>().ToList();
             string productList = string.Join(",", selectedProducts);
 
+            if (productList == string.Empty)
+            {
+                MessageBox.Show("Please choose products to order!");
+            }
+            else
+            {
+                Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address };
+                Orders order = new Orders { Address = OrderAddress, orderDate = DateTime.Now, Customer = customer, products_list = productList };
+                dbCustomerContext.Customers.Add(customer);
+                dbCustomerContext.Orders.Add(order);
 
-            Customer customer = new Customer { firstName = firstName, lastName = lastName, Address = Address, age = Age };
-            Orders order = new Orders { Address = OrderAddress, orderDate = DateTime.Now, Customer = customer, products_list = productList };
+                dbCustomerContext.SaveChanges();
 
-            dbCustomerContext.Customers.Add(customer);
-            dbCustomerContext.Orders.Add(order);
+                MessageBox.Show("Your order of " + productList + " to address: " + Address + " has been placed!", "Order Confirmation",
+        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-            dbCustomerContext.SaveChanges();
-
-            MessageBox.Show("Your order of "+ productList + " to address: "+ Address +" has been placed!", "Order Confirmation",
-    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
 
-       
+        private void cancelorderbtn_Click(object sender, EventArgs e)
+        {
+
+            if (OrderGridView.CurrentRow != null)
+            {
+                string PMessage = "Are you sure you want to delete this order?";
+                string PTitle = "Delete Confirmation";
+                var SelectedOrder = OrderGridView.CurrentRow.DataBoundItem as Orders;
+
+
+                if (SelectedOrder != null)
+                {
+
+
+                    if (MessageBox.Show(PMessage, PTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        dbCustomerContext.Orders.Attach(SelectedOrder);
+                        dbCustomerContext.Orders.Remove(SelectedOrder);
+                        dbCustomerContext.SaveChanges();
+                    }
+
+                }
+
+            }
+
+
+        }
     }
 }

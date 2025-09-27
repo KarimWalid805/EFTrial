@@ -63,10 +63,11 @@ namespace WinFormEF
             categoryDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             categoryDataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2 });
             categoryDataGridView.DataSource = categoryBindingSource1;
-            categoryDataGridView.Location = new Point(12, 116);
+            categoryDataGridView.Location = new Point(10, 87);
+            categoryDataGridView.Margin = new Padding(3, 2, 3, 2);
             categoryDataGridView.Name = "categoryDataGridView";
             categoryDataGridView.RowHeadersWidth = 51;
-            categoryDataGridView.Size = new Size(398, 379);
+            categoryDataGridView.Size = new Size(348, 284);
             categoryDataGridView.TabIndex = 3;
             categoryDataGridView.CellContentClick += categoryDataGridView_CellContentClick;
             // 
@@ -98,10 +99,11 @@ namespace WinFormEF
             productDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             productDataGridView.Columns.AddRange(new DataGridViewColumn[] { productIdDataGridViewTextBoxColumn, dataGridViewTextBoxColumn3, CategoryId });
             productDataGridView.DataSource = productsBindingSource1;
-            productDataGridView.Location = new Point(498, 116);
+            productDataGridView.Location = new Point(435, 88);
+            productDataGridView.Margin = new Padding(3, 2, 3, 2);
             productDataGridView.Name = "productDataGridView";
             productDataGridView.RowHeadersWidth = 51;
-            productDataGridView.Size = new Size(428, 379);
+            productDataGridView.Size = new Size(374, 284);
             productDataGridView.TabIndex = 4;
             // 
             // productIdDataGridViewTextBoxColumn
@@ -139,9 +141,10 @@ namespace WinFormEF
             // 
             Addbtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Addbtn.ForeColor = Color.FromArgb(0, 192, 0);
-            Addbtn.Location = new Point(692, 501);
+            Addbtn.Location = new Point(606, 376);
+            Addbtn.Margin = new Padding(3, 2, 3, 2);
             Addbtn.Name = "Addbtn";
-            Addbtn.Size = new Size(127, 29);
+            Addbtn.Size = new Size(111, 22);
             Addbtn.TabIndex = 5;
             Addbtn.Text = "Add Product";
             Addbtn.UseVisualStyleBackColor = true;
@@ -151,9 +154,10 @@ namespace WinFormEF
             // 
             Deletebtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Deletebtn.ForeColor = Color.Red;
-            Deletebtn.Location = new Point(559, 501);
+            Deletebtn.Location = new Point(489, 376);
+            Deletebtn.Margin = new Padding(3, 2, 3, 2);
             Deletebtn.Name = "Deletebtn";
-            Deletebtn.Size = new Size(127, 29);
+            Deletebtn.Size = new Size(111, 22);
             Deletebtn.TabIndex = 6;
             Deletebtn.Text = "Delete Product";
             Deletebtn.UseVisualStyleBackColor = true;
@@ -163,9 +167,10 @@ namespace WinFormEF
             // 
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button1.ForeColor = Color.Red;
-            button1.Location = new Point(47, 501);
+            button1.Location = new Point(41, 376);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(139, 29);
+            button1.Size = new Size(122, 22);
             button1.TabIndex = 9;
             button1.Text = "Delete Category";
             button1.UseVisualStyleBackColor = true;
@@ -175,9 +180,10 @@ namespace WinFormEF
             // 
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button2.ForeColor = Color.FromArgb(0, 192, 0);
-            button2.Location = new Point(192, 501);
+            button2.Location = new Point(168, 376);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(127, 29);
+            button2.Size = new Size(111, 22);
             button2.TabIndex = 8;
             button2.Text = "Add Category";
             button2.UseVisualStyleBackColor = true;
@@ -187,9 +193,10 @@ namespace WinFormEF
             // 
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button3.ForeColor = SystemColors.HotTrack;
-            button3.Location = new Point(382, 521);
+            button3.Location = new Point(334, 391);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(144, 37);
+            button3.Size = new Size(126, 28);
             button3.TabIndex = 7;
             button3.Text = "Save Changes";
             button3.UseVisualStyleBackColor = true;
@@ -199,10 +206,10 @@ namespace WinFormEF
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(118, 82);
+            label1.Location = new Point(103, 62);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.No;
-            label1.Size = new Size(189, 31);
+            label1.Size = new Size(157, 25);
             label1.TabIndex = 10;
             label1.Text = "Categories Table";
             // 
@@ -210,18 +217,18 @@ namespace WinFormEF
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(648, 82);
+            label2.Location = new Point(567, 62);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.No;
-            label2.Size = new Size(171, 31);
+            label2.Size = new Size(143, 25);
             label2.TabIndex = 11;
             label2.Text = "Products Table";
             // 
             // CatProForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(938, 573);
+            ClientSize = new Size(821, 430);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
@@ -231,6 +238,7 @@ namespace WinFormEF
             Controls.Add(Addbtn);
             Controls.Add(productDataGridView);
             Controls.Add(categoryDataGridView);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CatProForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Products and Categories";

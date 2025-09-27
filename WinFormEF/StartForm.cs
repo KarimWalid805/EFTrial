@@ -36,6 +36,7 @@ namespace WinFormEF
         public StartForm()
         {
             InitializeComponent();
+     
 
             this.driversBindingSource = new BindingSource(); // Initialize driversBindingSource
             this.customersBindingSource = new BindingSource(); // Initialize customersBindingSource
@@ -127,10 +128,6 @@ namespace WinFormEF
             costumerForm.ShowDialog();
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            
-        }
     }
 
 
