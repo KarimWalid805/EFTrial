@@ -38,8 +38,7 @@ namespace WinFormEF
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = OnlineDeliveryDB; TrustServerCertificate = True;");
-            con.Open();
+            con = new SqlConnection("Server=KARIMSPC;Database=OnlineDeliveryDB;Integrated Security=True;TrustServerCertificate=True;"); con.Open();
         }
 
         private void registerbtn_Click(object sender, EventArgs e)
@@ -141,3 +140,5 @@ namespace WinFormEF
         }
     }
 }
+
+

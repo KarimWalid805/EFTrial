@@ -1,5 +1,8 @@
 ﻿using MaterialSkin;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,8 +13,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
-using MaterialSkin.Controls;
 
 namespace WinFormEF
 {
@@ -36,8 +37,9 @@ namespace WinFormEF
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = OnlineDeliveryDB; TrustServerCertificate = True;");
+            con = new SqlConnection("Server=KARIMSPC;Database=OnlineDeliveryDB;Integrated Security=True;TrustServerCertificate=True;");
             con.Open();
+           
         }
 
         private void loginbtn_Click(object sender, EventArgs e)
